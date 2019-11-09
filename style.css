@@ -1,13 +1,25 @@
 body {
-  background-color: #dcffcc;
+  background-color: #494949;
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0; }
 
-#section-1, #section-2 {
-  height: 500px;
+#nav {
+  position: fixed;
+  z-index: 3;
+  top: 0; }
+  #nav a, #nav a:visited {
+    text-decoration: none;
+    color: #fff; }
+
+section {
+  height: 900px;
   width: 100%; }
+
+span {
+  color: #fff;
+  font-weight: bold; }
 
 #section-1 {
   display: flex;
@@ -17,39 +29,80 @@ body {
   clip-path: polygon(0% 0%, 0% 70%, 50% 100%, 100% 70%, 100% 0%); }
   #section-1 #wrap-content-1 {
     z-index: 2;
-    height: inherit;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center; }
+    height: 400px; }
     #section-1 #wrap-content-1 #profile-picture {
       background-image: url("images/harry_profile.png");
       border-radius: 50%;
       background-size: contain;
       width: 300px;
       height: 300px;
-      opacity: 1; }
+      opacity: 0;
+      position: absolute;
+      top: 30%;
+      right: 50%; }
+    #section-1 #wrap-content-1 #name {
+      position: absolute;
+      font-size: 50px;
+      top: 40%;
+      right: 30%; }
+    #section-1 #wrap-content-1 #education {
+      position: absolute;
+      right: 30%;
+      top: 52%; }
+    #section-1 #wrap-content-1 #department {
+      position: absolute;
+      right: 30%;
+      top: 55%; }
+    #section-1 #wrap-content-1 #name, #section-1 #wrap-content-1 #education, #section-1 #wrap-content-1 #department {
+      opacity: 0; }
+  #section-1.show #profile-picture {
+    animation: pic-in 3s ease forwards; }
 @keyframes pic-in {
   from {
-    opacity: 0;
-    transform: translateX(-300px); }
+    transform: translateX(-150px); }
   to {
     opacity: 1;
-    transform: translateX(-100px);
+    transform: translateX(-50px);
+    text-shadow: 5px 5px 0.1em #0a0a0a r; } }
+  #section-1.show #name {
+    animation: name-in 3s ease forwards; }
+@keyframes name-in {
+  from {
+    opacity: 0;
+    transform: translateX(140px); }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
     filter: drop-shadow(5px 5px 30px #0a0a0a); } }
-    #section-1 #wrap-content-1 #name {
-      font-size: 50px;
-      margin-bottom: 30px; }
-
+  #section-1.show #education {
+    animation: edu-in 3s ease forwards; }
+@keyframes edu-in {
+  from {
+    opacity: 0;
+    transform: translateX(110px); }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+    filter: drop-shadow(5px 5px 30px #0a0a0a); } }
+  #section-1.show #department {
+    animation: dep-in 3s ease forwards; }
+@keyframes dep-in {
+  from {
+    opacity: 0;
+    transform: translateX(90px); }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+    filter: drop-shadow(5px 5px 30px #0a0a0a); } }
 .mask {
   background-color: rgba(0, 0, 0, 0.507);
-  height: 500px;
+  height: 900px;
   position: absolute;
   width: 100%;
   z-index: 1; }
 
 .parallax {
-  height: 500px;
+  height: 900px;
   width: 100%;
   position: absolute;
   background-attachment: fixed;
@@ -64,7 +117,25 @@ body {
   background-image: url("images/m_green.jpg"); }
 
 section:not(:first-child) {
-  margin-top: -100px;
+  margin-top: -50px;
   clip-path: polygon(0% 0%, 50% 30%, 100% 0%, 100% 70%, 50% 100%, 0% 70%, 0% 0%); }
+
+#section-2 {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  #section-2 #wrap-content-2 {
+    padding: 200px 50px 200px 50px;
+    z-index: 2;
+    height: 400px; }
+    #section-2 #wrap-content-2 #as {
+      z-index: 2;
+      position: absolute; }
+    #section-2 #wrap-content-2 #job {
+      z-index: 2;
+      position: absolute; }
+    #section-2 #wrap-content-2 #study {
+      z-index: 2;
+      position: absolute; }
 
 /*# sourceMappingURL=style.css.map */

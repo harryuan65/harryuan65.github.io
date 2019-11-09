@@ -1,19 +1,35 @@
 body{
     // background-color:#589167;
-    background-color:#dcffcc;
+    // background-color:#dcffcc;
+    background-color:#494949;
     width:100%;
     height:100%;
     margin:0;
     padding:0;
 }
+#nav{
+    position:fixed;
+    z-index: 3;
+    top:0;
+    & a, & a:visited{
+      text-decoration: none;
+      color:#fff;
+    }
+}
 
-%container{
-    height: 500px;
+$section-height: 900px;
+
+section{
+    height: $section-height;
     width: 100%;
 }
 
+span{
+    color:#fff;
+    font-weight: bold;
+}
+
 #section-1{
-    @extend %container;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -21,40 +37,106 @@ body{
     clip-path: polygon(0% 0%, 0% 70%, 50% 100%, 100% 70%,100% 0%);
     #wrap-content-1{
         z-index: 2;
-        height: inherit;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        height: 400px;
         #profile-picture{
           background-image: url('images/harry_profile.png');
           border-radius: 50%;
           background-size: contain;
           width:  300px;
           height: 300px;
-          opacity: 1;
-        //   animation: pic-in 3.5s 0s ease forwards;
-          @keyframes pic-in{
-              from{opacity:0;transform: translateX(-300px);}
-              to{opacity:1;transform: translateX(-100px);filter: drop-shadow(5px 5px 30px rgb(10,10,10));}
-          }
+          opacity: 0;
+          position: absolute;
+          top: 30%;
+          right: 50%;
         }
         #name{
+            position: absolute;
             font-size: 50px;
-            margin-bottom:30px;
+            top: 40%;
+            right: 30%;
         }
-
+        #education{
+            position: absolute;
+            right: 30%;
+            top: 52%;
+        }
+        #department{
+            position: absolute;
+            right: 30%;
+            top: 55%;
+        }
+        #name, #education, #department{
+            opacity: 0;
+        }
+    }
+    &.show{
+        & #profile-picture{
+          animation: pic-in 3s ease forwards;
+          @keyframes pic-in{
+              from{
+                transform: translateX(-150px);
+              }
+              to{
+                opacity:1;
+                transform: translateX(-50px);
+                text-shadow:5px 5px .1em rgb(10,10,10)r;
+              }
+          }
+        }
+        & #name{
+            animation: name-in 3s ease forwards;
+            @keyframes name-in{
+                from{
+                  opacity: 0;
+                  transform: translateX(140px);
+                }
+                to{
+                  opacity:1;
+                  transform: translateX(0px);
+                  filter: drop-shadow(5px 5px 30px rgb(10,10,10));
+                }
+            }
+        }
+        & #education{
+            animation: edu-in 3s ease forwards;
+            @keyframes edu-in{
+                from{
+                 opacity: 0;
+                 transform: translateX(110px);
+                }
+                to{
+                  opacity:1;
+                  transform: translateX(0px);
+                  filter: drop-shadow(5px 5px 30px rgb(10,10,10));
+                }
+            }
+        }
+        & #department{
+            animation: dep-in 3s ease forwards;
+            @keyframes dep-in{
+                from{
+                  opacity: 0;
+                  transform: translateX(90px);
+                }
+                to{
+                  opacity:1;
+                  transform: translateX(0px);
+                  filter: drop-shadow(5px 5px 30px rgb(10,10,10));
+                }
+            }
+        }
     }
 }
 .mask{
     background-color:rgba(0, 0, 0, 0.507);
-    height: 500px;
+    height: $section-height;
     position:absolute;
     width: 100%;
     z-index: 1;
 }
+
 %parallax{
-    height: 500px;
+    height: $section-height;
     width: 100%;
     position:absolute;
     background-attachment: fixed;
@@ -75,12 +157,31 @@ body{
     }
 }
 
-
-
 section:not(:first-child){
-    margin-top: -100px;
+    margin-top: -50px;
     clip-path: polygon(0% 0%, 50% 30%,100% 0%, 100% 70%, 50% 100%, 0% 70%, 0% 0%);
 }
+
 #section-2{
-    @extend %container;
+    // display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    #wrap-content-2{
+        padding: 200px 50px 200px 50px;
+        z-index: 2;
+        height:400px;
+        #as{
+          z-index: 2;
+          position: absolute;
+        }
+        #job{
+          z-index: 2;
+          position: absolute;
+        }
+        #study{
+          z-index: 2;
+          position: absolute;
+        }
+    }
 }
