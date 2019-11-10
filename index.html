@@ -4,43 +4,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script type='text/javascript' src="javascript/jquery-3.4.1.min.js"></script>
-    <!-- <script type="text/javascript" src="javascript/parallax.min.js"></script> -->
+    <script type="text/javascript" src="javascript/jquery.easing.compatibility.js"></script>
+    <script type="text/javascript" src='javascript/jquery-ui.min.js'></script>
     <script type="text/javascript" src="javascript/index.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="aos/aos.css" />
     <title>Harry Yuan</title>
 </head>
 <body>
+  <script src="aos/aos.js"></script>
+  <script>
+    AOS.init({
+      easing: 'ease-out',
+      startEvent: 'DOMContentLoaded',
+      once: false,
+      mirror: true
+    });
+  </script>
+
   <div class="" id="nav">
       <a class="anchor" href="#section-1">Top</a>
       <a class="anchor" href="#section-2">Experiences</a>
       <a class="anchor" href="#section-3">Awards</a>
-      <a href="#section-1">Top-on</a>
-      <a id="test">(Show-first)</a>
-  </div>
+      <a class="anchor" href="#section-4">Other</a>
+    </div>
+
+
 
   <section id="section-1">
     <div class="mask"></div>
-    <div class="parallax green"></div>
+    <div class="parallax" id="p1"></div>
     <div id="wrap-content-1">
-      <div id="profile-picture"></div>
-      <div id="name"><span>Harry Yuan</span></div>
-      <div id="education"><span>National Taipei University</span></div>
-      <div id="department"><span>Computer Science</span></div>
+      <div class="segment-r" id="wrap-pic" data-aos="zoom-in-right" data-aos-easing="ease-in-out-quad" data-aos-duration="1000">
+        <div id="profile-picture"></div>
+      </div>
+      <div class="segment-c" id="wrap-info">
+        <div id="name" data-aos="fade-left" data-aos-duration="1000"><span>Harry Yuan</span></div>
+        <div id="education" data-aos="fade-left" data-aos-duration="800" data-aos-delay="50"><span>National Taipei University</span></div>
+        <div id="department" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100"><span>Computer Science</span></div>
+      </div>
     </div>
   </section>
   <section id="section-2">
     <div class="mask"></div>
-    <div class="parallax light"></div>
+    <div class="parallax" id="p2"></div>
       <div class="" id="wrap-content-2">
-      <div id="as"><span>Currently As</span></div>
-      <div id="job"><span>Backend Intern in Goodnight App</span></div>
-      <div id="study"><span>NTPU Computer Science - Master Student</span></div>
+      <div id="as" data-aos="fade-in" data-aos-duration="500"><span>Currently As</span></div>
+      <div class="" id="wrap-details">
+        <div id="job" data-aos="fade-in" data-aos-duration="500" data-aos-delay="0"><span>Backend Intern in Goodnight App</span></div>
+        <div id="study" data-aos="fade-in" data-aos-duration="500" data-aos-delay="0"><span>NTPU Computer Science - Master Student</span></div>
+      </div>
     </div>
   </section>
 
   <section class="container" id="section-3">
       <div class="mask"></div>
-      <div class="parallax sunset"></div>
+      <div class="parallax" id="p3"></div>
+      <h3 id="title" data-aos="fade-left" data-aos-duration="1000">Awards</h3>
+      <div id="slider-1" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="100">
+        <div class="wrap-slide-page">
+          <span id="current-slide"></span>
+          <span>/</span>
+          <span id="total-slides"></span>
+        </div>
+      <div class="container-slider-buttons">
+        <div class="wrap-slider-buttons">
+          <a class="a-slider" id="btn-slider-1"></a>
+          <a class="a-slider" id="btn-slider-2"></a>
+          <a class="a-slider" id="btn-slider-3"></a>
+        </div>
+       </div>
+      <div class="container-img"> <!-- 用來遮住多的圖片用的-->
+        <div class="wrap-img">  <!-- 用來延伸1200px用的-->
+          <!-- <div class="mask-slider"></div> -->
+          <div class="pic" id="img-1"></div>
+          <div class="pic" id="img-2"></div>
+          <div class="pic" id="img-3"></div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+  <section class="container" id="section-4">
+      <div class="mask"></div>
+      <div class="parallax" id="p4"></div>
   </section>
+
 </body>
 </html>

@@ -1,7 +1,7 @@
 body{
     // background-color:#589167;
     // background-color:#dcffcc;
-    background-color:#494949;
+    background-color:rgba(24, 24, 24, 0.76);
     width:100%;
     height:100%;
     margin:0;
@@ -17,8 +17,8 @@ body{
     }
 }
 
-$section-height: 900px;
-
+$section-height: 800px;
+$clip-rate: 10%;
 section{
     height: $section-height;
     width: 100%;
@@ -27,105 +27,6 @@ section{
 span{
     color:#fff;
     font-weight: bold;
-}
-
-#section-1{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    clip-path: polygon(0% 0%, 0% 70%, 50% 100%, 100% 70%,100% 0%);
-    #wrap-content-1{
-        z-index: 2;
-        height: 400px;
-        #profile-picture{
-          background-image: url('images/harry_profile.png');
-          border-radius: 50%;
-          background-size: contain;
-          width:  300px;
-          height: 300px;
-          opacity: 0;
-          position: absolute;
-          top: 30%;
-          right: 50%;
-        }
-        #name{
-            position: absolute;
-            font-size: 50px;
-            top: 40%;
-            right: 30%;
-        }
-        #education{
-            position: absolute;
-            right: 30%;
-            top: 52%;
-        }
-        #department{
-            position: absolute;
-            right: 30%;
-            top: 55%;
-        }
-        #name, #education, #department{
-            opacity: 0;
-        }
-    }
-    &.show{
-        & #profile-picture{
-          animation: pic-in 3s ease forwards;
-          @keyframes pic-in{
-              from{
-                transform: translateX(-150px);
-              }
-              to{
-                opacity:1;
-                transform: translateX(-50px);
-                text-shadow:5px 5px .1em rgb(10,10,10)r;
-              }
-          }
-        }
-        & #name{
-            animation: name-in 3s ease forwards;
-            @keyframes name-in{
-                from{
-                  opacity: 0;
-                  transform: translateX(140px);
-                }
-                to{
-                  opacity:1;
-                  transform: translateX(0px);
-                  filter: drop-shadow(5px 5px 30px rgb(10,10,10));
-                }
-            }
-        }
-        & #education{
-            animation: edu-in 3s ease forwards;
-            @keyframes edu-in{
-                from{
-                 opacity: 0;
-                 transform: translateX(110px);
-                }
-                to{
-                  opacity:1;
-                  transform: translateX(0px);
-                  filter: drop-shadow(5px 5px 30px rgb(10,10,10));
-                }
-            }
-        }
-        & #department{
-            animation: dep-in 3s ease forwards;
-            @keyframes dep-in{
-                from{
-                  opacity: 0;
-                  transform: translateX(90px);
-                }
-                to{
-                  opacity:1;
-                  transform: translateX(0px);
-                  filter: drop-shadow(5px 5px 30px rgb(10,10,10));
-                }
-            }
-        }
-    }
 }
 .mask{
     background-color:rgba(0, 0, 0, 0.507);
@@ -136,52 +37,221 @@ span{
 }
 
 %parallax{
-    height: $section-height;
     width: 100%;
-    position:absolute;
+    height: inherit;
+    position: absolute;
     background-attachment: fixed;
     background-size: cover;
+    background-repeat: no-repeat;
     z-index: 0;
 }
 
 .parallax{
     @extend %parallax;
-    &.light{
-        background-image: url("images/m_light.jpg");
+    &#p1 {
+        background-image: url("images/m_green_r.jpg");
+        // background-image: rgb(51, 51, 51);
     }
-    &.sunset{
-        background-image: url("images/m_sunset.jpg")
+    &#p2{
+        background-image: url("images/m_light_r.jpg");
+        // background-image: rgb(112, 0, 0);
     }
-    &.green{
-        background-image: url("images/m_green.jpg")
+    &#p3{
+        background-image: url("images/m_sunset_r.jpg");
+        // background-image: rgb(0, 49, 155);
+    }
+    &#p4{
+        background-image: url("images/m_coase_green_r.jpg");
+        // background-image: rgb(51, 51, 51);
+    }
+}
+%segment{
+    display:flex;
+    height:inherit;
+    width:50%;
+}
+.segment-c{
+  @extend %segment;
+  flex-direction: column;
+  &#wrap-info{
+      justify-content: center;
+      align-items: flex-start;
+  }
+}
+.segment-r{
+  @extend %segment;
+  flex-direction: row;
+  &#wrap-pic{
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+#section-1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(0% 0%, 0% #{100%-$clip-rate}, 50% 100%, 100% #{100-$clip-rate},100% 0%);
+    #wrap-content-1{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        height: 400px;
+        width: 100%;
+    }
+    #profile-picture{
+      background-image: url('images/harry_profile.png');
+      border-radius: 50%;
+      background-size: contain;
+      width:  300px;
+      height: 300px;
+      position: relative;
+      display: inline-block;
+      margin-right: 90px;
+    }
+    #name{
+        font-size: 50px;
+    }
+    #name, #education, #department{
+        position: relative;
     }
 }
 
 section:not(:first-child){
-    margin-top: -50px;
-    clip-path: polygon(0% 0%, 50% 30%,100% 0%, 100% 70%, 50% 100%, 0% 70%, 0% 0%);
+    margin-top: -150px;
+    clip-path: polygon(0% 0%, 50% $clip-rate,100% 0%, 100% #{100%-$clip-rate}, 50% 100%, 0% #{100%-$clip-rate}, 0% 0%);
 }
 
 #section-2{
-    // display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     #wrap-content-2{
-        padding: 200px 50px 200px 50px;
         z-index: 2;
-        height:400px;
+        position: relative;
+        height:500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         #as{
-          z-index: 2;
-          position: absolute;
+         margin-top: -100px;
+         position: relative;
+         font-size: 40px;
+         font-style: oblique;
         }
-        #job{
-          z-index: 2;
-          position: absolute;
+        #wrap-details{
+          margin-top: 50px;
+          position: relative;
         }
-        #study{
-          z-index: 2;
-          position: absolute;
+        #job, #study{
+            font-size:25px;
+            margin-left:30px;
         }
     }
 }
+#section-3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#title{
+    z-index: 2;
+    color:#fff;
+    font-size: 40px;
+    font-style:italic;
+    width: 600px;
+    height: 30px;
+    margin-top: -50px
+}
+#slider-1{
+    z-index: 2;
+    position: relative;
+    height: 400px;
+    width: 600px;
+  }
+  .wrap-slide-page{
+    margin: 10px 0 0 10px;
+    position: absolute;
+    z-index:1;
+    color: rgba(256,256,256,.8);
+  }
+  .container-slider-buttons{
+    position: absolute;
+    z-index: 1;
+    height:400px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .wrap-slider-buttons{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .a-slider{
+    width:20px;
+    height:20px;
+    background-color: rgba(255,255,255,.6);
+    border-radius: 10px;
+    transition: .5s ease-out;
+    &:nth-child(2){
+      margin:0 5px 0 5px;
+    }
+    &:hover{
+      background-color: rgba(255,255,255,.5);
+    }
+    &:active{
+      background-color: rgba(255,255,255,.4);
+    }
+  }
+
+  .container-img{
+    position: absolute;
+    width: 600px;
+    height: inherit;
+    overflow: hidden; //這個是關鍵用來擋住 1.很長的wrap-img 2. border radius擋住裡面的圖
+    border-radius: 15px;
+  }
+  .wrap-img{
+    position: absolute;
+    width: 1800px;
+    height: 400px;
+    display:flex;
+    flex-direction: row;
+    // overflow: hidden;
+  }
+  .mask-slider{
+    border-radius: inherit;
+    background-color: rgba(90,90,90,.3);
+    position: absolute;
+    width: 600px;
+    height: inherit;
+  }
+  %img{
+      // border-radius: inherit;
+    background-size: contain; //是說顯示整個張圖，所以會自動偵測比例
+    background-repeat: no-repeat;
+    width: 100%;
+    height:100%;
+    display: inline-block;
+  }
+  .pic{
+    @extend %img;
+  }
+  #img-1{
+    background-image: url(https://salishmagazine.org/wp-content/uploads/2019/07/1-20170819-5038D800-600-400.jpg);
+  }
+  #img-2{
+    background-image: url(https://i2.wp.com/hdtanning.com/wp-content/uploads/2016/11/sea-sunny-person-beach-600x400.jpg?fit=600%2C400&ssl=1);
+  }
+  #img-3{
+    background-image: url(https://i2.wp.com/drleskertay.com/wp-content/uploads/2017/08/NH-sunset-cropped-600x400.jpg?ssl=1);
+  }
