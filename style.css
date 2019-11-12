@@ -67,8 +67,7 @@ span {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  clip-path: polygon(0% 0%, 0% 90%, 50% 100%, 100% 90%, 100% 0%); }
+  align-items: center; }
   #section-1 #wrap-content-1 {
     position: relative;
     display: flex;
@@ -92,9 +91,17 @@ span {
   #section-1 #name, #section-1 #education, #section-1 #department {
     position: relative; }
 
-section:not(:first-child) {
-  margin-top: -150px;
+section:not(:first-of-type):not(:last-of-type) {
   clip-path: polygon(0% 0%, 50% 10%, 100% 0%, 100% 90%, 50% 100%, 0% 90%, 0% 0%); }
+
+section:first-of-type {
+  clip-path: polygon(0% 0%, 0% 90%, 50% 100%, 100% 90%, 100% 0%); }
+
+section:last-of-type {
+  clip-path: polygon(0% 0%, 50% 10%, 100% 0%, 100% 100%, 0% 100%); }
+
+section:not(:first-of-type) {
+  margin-top: -80px; }
 
 .container {
   display: flex;
@@ -134,12 +141,14 @@ section:not(:first-child) {
     .wrap-block .wrap-tag.time, .wrap-block .wrap-details.time {
       width: 185px; }
     .wrap-block .wrap-tag.award, .wrap-block .wrap-details.award {
+      font-size: 20px;
       width: 485px; }
   .wrap-block .wrap-details {
     margin-left: 40px; }
     .wrap-block .wrap-details .topic {
       font-size: 20px;
-      font-weight: bold;
+      font-weight: bold; }
+    .wrap-block .wrap-details .detail {
       font-style: italic; }
     .wrap-block .wrap-details .award {
       width: 400px; }

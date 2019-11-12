@@ -92,7 +92,6 @@ span{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    clip-path: polygon(0% 0%, 0% #{100%-$clip-rate}, 50% 100%, 100% #{100-$clip-rate},100% 0%);
     #wrap-content-1{
         position: relative;
         display: flex;
@@ -121,10 +120,19 @@ span{
     }
 }
 
-section:not(:first-child){
-    margin-top: -150px;
-    clip-path: polygon(0% 0%, 50% $clip-rate,100% 0%, 100% #{100%-$clip-rate}, 50% 100%, 0% #{100%-$clip-rate}, 0% 0%);
+section:not(:first-of-type):not(:last-of-type){
+  clip-path: polygon(0% 0%, 50% $clip-rate,100% 0%, 100% #{100%-$clip-rate}, 50% 100%, 0% #{100%-$clip-rate}, 0% 0%);
 }
+section:first-of-type{
+  clip-path: polygon(0% 0%, 0% #{100%-$clip-rate}, 50% 100%, 100% #{100-$clip-rate},100% 0%);
+}
+section:last-of-type{
+  clip-path: polygon(0% 0%, 50% $clip-rate, 100% 0%, 100% 100%, 0% 100%);
+}
+section:not(:first-of-type){
+  margin-top:-#{$section-height*0.1};//補足-10%
+}
+
 
 .container{
   display: flex;
@@ -170,18 +178,19 @@ section:not(:first-child){
      width: 185px;
     }
     &.award{
-     width: 485px;
+      font-size: 20px;
+      width: 485px;
     }
   }
   .wrap-details{
     margin-left: 40px;
-    // width: 450px;
     & .topic{
       font-size: 20px;
       font-weight: bold;
+    }
+    & .detail{
       font-style: italic;
     }
-
     & .award{
       width: 400px;
     }
