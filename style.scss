@@ -50,19 +50,19 @@ span{
     @extend %parallax;
     &#p1 {
         background-image: url("images/m_green_r.jpg");
-        // background-image: rgb(51, 51, 51);
+        // background-color: rgb(51, 51, 51);
     }
     &#p2{
         background-image: url("images/m_light_r.jpg");
-        // background-image: rgb(112, 0, 0);
+        // background-color: rgb(112, 0, 0);
     }
     &#p3{
         background-image: url("images/m_sunset_r.jpg");
-        // background-image: rgb(0, 49, 155);
+        // background-color: rgb(0, 49, 155);
     }
     &#p4{
         background-image: url("images/m_coase_green_r.jpg");
-        // background-image: rgb(51, 51, 51);
+        // background-color: rgb(10, 163, 31);
     }
 }
 %segment{
@@ -86,6 +86,7 @@ span{
     align-items: center;
   }
 }
+
 #section-1{
     display: flex;
     flex-direction: row;
@@ -125,49 +126,77 @@ section:not(:first-child){
     clip-path: polygon(0% 0%, 50% $clip-rate,100% 0%, 100% #{100%-$clip-rate}, 50% 100%, 0% #{100%-$clip-rate}, 0% 0%);
 }
 
-#section-2{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    #wrap-content-2{
-        z-index: 2;
-        position: relative;
-        height:500px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        #as{
-         margin-top: -100px;
-         position: relative;
-         font-size: 40px;
-         font-style: oblique;
-        }
-        #wrap-details{
-          margin-top: 50px;
-          position: relative;
-        }
-        #job, #study{
-            font-size:25px;
-            margin-left:30px;
-        }
-    }
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-#section-3{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-#title{
-    z-index: 2;
-    color:#fff;
+
+.wrap-block{
+  z-index: 2;
+  position: relative;
+  height:500px;
+  width:750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: -150px;
+  color:#fff;
+  .title{
     font-size: 40px;
-    font-style:italic;
-    width: 600px;
-    height: 30px;
-    margin-top: -50px
+    margin:0 0 30px 0px;
+  }
+  .wrap-rows{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 0 0 30px;
+  }
+  .row{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    &:not(:first-child){
+      margin-top:30px;
+    }
+  }
+  .wrap-tag, .wrap-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    &.time{
+     width: 185px;
+    }
+    &.award{
+     width: 485px;
+    }
+  }
+  .wrap-details{
+    margin-left: 40px;
+    // width: 450px;
+    & .topic{
+      font-size: 20px;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    & .award{
+      width: 400px;
+    }
+    & .extra{
+      width: 400px;
+    }
+  }
 }
+
+#section-4{
+  .wrap-block{
+    margin-top:50px;
+  }
+}
+//Slider
 #slider-1{
     z-index: 2;
     position: relative;
@@ -199,14 +228,14 @@ section:not(:first-child){
   .a-slider{
     width:20px;
     height:20px;
-    background-color: rgba(255,255,255,.6);
+    background-color: rgba(211, 211, 211, 0.63);
     border-radius: 10px;
-    transition: .5s ease-out;
+    transition: .3s ease-out;
     &:nth-child(2){
       margin:0 5px 0 5px;
     }
     &:hover{
-      background-color: rgba(255,255,255,.5);
+      background-color: rgba(179, 179, 179, 0.5);
     }
     &:active{
       background-color: rgba(255,255,255,.4);
