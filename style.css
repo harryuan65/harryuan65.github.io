@@ -1,238 +1,43 @@
-body {
-  background-color: rgba(24, 24, 24, 0.76);
-  width: 100%;
-  height: 100%;
+html, body {
   margin: 0;
-  padding: 0; }
+  background-color: #DBDBDB; }
 
-#nav {
-  position: fixed;
-  z-index: 3;
-  top: 0; }
-  #nav a, #nav a:visited {
-    text-decoration: none;
-    color: #fff; }
-
-section {
-  height: 800px;
-  width: 100%; }
-
-span {
-  color: #fff;
-  font-weight: bold; }
-
-.mask {
-  background-color: rgba(0, 0, 0, 0.507);
-  height: 800px;
-  position: absolute;
-  width: 100%;
-  z-index: 1; }
-
-.parallax {
-  width: 100%;
-  height: inherit;
-  position: absolute;
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 0; }
-
-.parallax#p1 {
-  background-image: url("images/m_green_r.jpg"); }
-.parallax#p2 {
-  background-image: url("images/m_light_r.jpg"); }
-.parallax#p3 {
-  background-image: url("images/m_sunset_r.jpg"); }
-.parallax#p4 {
-  background-image: url("images/m_coase_green_r.jpg"); }
-
-.segment-c, .segment-r {
+body {
   display: flex;
-  height: inherit;
-  width: 50%; }
-
-.segment-c {
-  flex-direction: column; }
-  .segment-c#wrap-info {
-    justify-content: center;
-    align-items: flex-start; }
-
-.segment-r {
   flex-direction: row; }
-  .segment-r#wrap-pic {
-    justify-content: flex-end;
-    align-items: center; }
 
-#section-1 {
+#nav-entry {
+  position: absolute;
+  left: 30px;
+  top: 30px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center; }
-  #section-1 #wrap-content-1 {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    height: 400px;
-    width: 100%; }
-  #section-1 #profile-picture {
-    background-image: url("images/harry_profile.png");
-    border-radius: 50%;
-    background-size: contain;
-    width: 300px;
-    height: 300px;
-    position: relative;
+  font-size: 40px;
+  color: rgba(54, 54, 54, 0.8);
+  cursor: pointer;
+  border: 1px solid black; }
+  #nav-entry #txt-menu {
     display: inline-block;
-    margin-right: 90px; }
-  #section-1 #name {
-    font-size: 50px; }
-  #section-1 #name, #section-1 #education, #section-1 #department {
-    position: relative; }
+    width: 0px;
+    overflow: hidden;
+    transition: .3s; }
+  #nav-entry #nav-toggle:hover + #txt-menu {
+    width: 120px; }
 
-section:not(:first-of-type):not(:last-of-type) {
-  clip-path: polygon(0% 0%, 50% 10%, 100% 0%, 100% 90%, 50% 100%, 0% 90%, 0% 0%); }
-
-section:first-of-type {
-  clip-path: polygon(0% 0%, 0% 90%, 50% 100%, 100% 90%, 100% 0%); }
-
-section:last-of-type {
-  clip-path: polygon(0% 0%, 50% 10%, 100% 0%, 100% 100%, 0% 100%); }
-
-section:not(:first-of-type) {
-  margin-top: -80px; }
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-
-.wrap-block {
-  z-index: 2;
-  position: relative;
-  height: 500px;
-  width: 750px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-top: -150px;
-  color: #fff; }
-  .wrap-block .title {
-    font-size: 40px;
-    margin: 0 0 30px 0px; }
-  .wrap-block .wrap-rows {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 0 0 0 30px; }
-  .wrap-block .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start; }
-    .wrap-block .row:not(:first-child) {
-      margin-top: 30px; }
-  .wrap-block .wrap-tag, .wrap-block .wrap-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; }
-    .wrap-block .wrap-tag.time, .wrap-block .wrap-details.time {
-      width: 185px; }
-    .wrap-block .wrap-tag.award, .wrap-block .wrap-details.award {
-      font-size: 20px;
-      width: 485px; }
-  .wrap-block .wrap-details {
-    margin-left: 40px; }
-    .wrap-block .wrap-details .topic {
-      font-size: 20px;
-      font-weight: bold; }
-    .wrap-block .wrap-details .detail {
-      font-style: italic; }
-    .wrap-block .wrap-details .award {
-      width: 400px; }
-    .wrap-block .wrap-details .extra {
-      width: 400px; }
-
-#section-4 .wrap-block {
-  margin-top: 50px; }
-
-#slider-1 {
-  z-index: 2;
-  position: relative;
-  height: 400px;
-  width: 600px; }
-
-.wrap-slide-page {
-  margin: 10px 0 0 10px;
-  position: absolute;
+nav {
+  position: fixed;
   z-index: 1;
-  color: rgba(255, 255, 255, 0.8); }
-
-.container-slider-buttons {
-  position: absolute;
-  z-index: 1;
-  height: 400px;
-  width: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end; }
-
-.wrap-slider-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-bottom: 10px; }
-
-.a-slider {
-  width: 20px;
-  height: 20px;
-  background-color: rgba(211, 211, 211, 0.63);
-  border-radius: 10px;
-  transition: .3s ease-out; }
-  .a-slider:nth-child(2) {
-    margin: 0 5px 0 5px; }
-  .a-slider:hover {
-    background-color: rgba(179, 179, 179, 0.5); }
-  .a-slider:active {
-    background-color: rgba(255, 255, 255, 0.4); }
-
-.container-img {
-  position: absolute;
-  width: 600px;
-  height: inherit;
-  overflow: hidden;
-  border-radius: 15px; }
-
-.wrap-img {
-  position: absolute;
-  width: 1800px;
-  height: 400px;
-  display: flex;
-  flex-direction: row; }
-
-.mask-slider {
-  border-radius: inherit;
-  background-color: rgba(90, 90, 90, 0.3);
-  position: absolute;
-  width: 600px;
-  height: inherit; }
-
-.pic {
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  display: inline-block; }
-
-#img-1 {
-  background-image: url(https://salishmagazine.org/wp-content/uploads/2019/07/1-20170819-5038D800-600-400.jpg); }
-
-#img-2 {
-  background-image: url(https://i2.wp.com/hdtanning.com/wp-content/uploads/2016/11/sea-sunny-person-beach-600x400.jpg?fit=600%2C400&ssl=1); }
-
-#img-3 {
-  background-image: url(https://i2.wp.com/drleskertay.com/wp-content/uploads/2017/08/NH-sunset-cropped-600x400.jpg?ssl=1); }
+  background-color: #a0855b;
+  transition: 1s ease forward;
+  width: 0;
+  overflow: hidden; }
+  nav ul {
+    padding: 0;
+    list-style: none; }
+    nav ul li {
+      color: #cfcfcf;
+      transition: .5s ease; }
+      nav ul li:hover {
+        text-shadow: -1px 0 rgba(54, 54, 54, 0.8), 0 1px rgba(54, 54, 54, 0.8), 1px 0 rgba(54, 54, 54, 0.8), 0 -1px rgba(54, 54, 54, 0.8); }
 
 /*# sourceMappingURL=style.css.map */

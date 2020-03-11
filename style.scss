@@ -1,295 +1,59 @@
-body{
-    // background-color:#589167;
-    // background-color:#dcffcc;
-    background-color:rgba(24, 24, 24, 0.76);
-    width:100%;
-    height:100%;
-    margin:0;
-    padding:0;
-}
-#nav{
-    position:fixed;
-    z-index: 3;
-    top:0;
-    & a, & a:visited{
-      text-decoration: none;
-      color:#fff;
-    }
+// nav: #a0855b;
+// btn-background-color: rgba(0, 103, 104, 0.4);
+// background-color: rgb(48, 36, 30);
+// background-color: #DBDBDB;
+// borders: rgba(54,54,54,.8);
+html, body {
+  margin: 0;
+  background-color: #DBDBDB;
 }
 
-$section-height: 800px;
-$clip-rate: 10%;
-section{
-    height: $section-height;
-    width: 100%;
-}
-
-span{
-    color:#fff;
-    font-weight: bold;
-}
-.mask{
-    background-color:rgba(0, 0, 0, 0.507);
-    height: $section-height;
-    position:absolute;
-    width: 100%;
-    z-index: 1;
-}
-
-%parallax{
-    width: 100%;
-    height: inherit;
-    position: absolute;
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 0;
-}
-
-.parallax{
-    @extend %parallax;
-    &#p1 {
-        background-image: url("images/m_green_r.jpg");
-        // background-color: rgb(51, 51, 51);
-    }
-    &#p2{
-        background-image: url("images/m_light_r.jpg");
-        // background-color: rgb(112, 0, 0);
-    }
-    &#p3{
-        background-image: url("images/m_sunset_r.jpg");
-        // background-color: rgb(0, 49, 155);
-    }
-    &#p4{
-        background-image: url("images/m_coase_green_r.jpg");
-        // background-color: rgb(10, 163, 31);
-    }
-}
-%segment{
-    display:flex;
-    height:inherit;
-    width:50%;
-}
-.segment-c{
-  @extend %segment;
-  flex-direction: column;
-  &#wrap-info{
-      justify-content: center;
-      align-items: flex-start;
-  }
-}
-.segment-r{
-  @extend %segment;
+body {
+  display: flex;
   flex-direction: row;
-  &#wrap-pic{
-    justify-content: flex-end;
-    align-items: center;
-  }
 }
 
-#section-1{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    #wrap-content-1{
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        z-index: 2;
-        height: 400px;
-        width: 100%;
-    }
-    #profile-picture{
-      background-image: url('images/harry_profile.png');
-      border-radius: 50%;
-      background-size: contain;
-      width:  300px;
-      height: 300px;
-      position: relative;
-      display: inline-block;
-      margin-right: 90px;
-    }
-    #name{
-        font-size: 50px;
-    }
-    #name, #education, #department{
-        position: relative;
-    }
-}
-
-section:not(:first-of-type):not(:last-of-type){
-  clip-path: polygon(0% 0%, 50% $clip-rate,100% 0%, 100% #{100%-$clip-rate}, 50% 100%, 0% #{100%-$clip-rate}, 0% 0%);
-}
-section:first-of-type{
-  clip-path: polygon(0% 0%, 0% #{100%-$clip-rate}, 50% 100%, 100% #{100-$clip-rate},100% 0%);
-}
-section:last-of-type{
-  clip-path: polygon(0% 0%, 50% $clip-rate, 100% 0%, 100% 100%, 0% 100%);
-}
-section:not(:first-of-type){
-  margin-top:-#{$section-height*0.1};//補足-10%
-}
-
-
-.container{
+#nav-entry {
+  position: absolute;
+  left: 30px;
+  top: 30px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+  flex-direction: row;
+  font-size: 40px;
+  color: rgba(54,54,54,.8);
+  cursor: pointer;
+  border: 1px solid black;
 
-.wrap-block{
-  z-index: 2;
-  position: relative;
-  height:500px;
-  width:750px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-top: -150px;
-  color:#fff;
-  .title{
-    font-size: 40px;
-    margin:0 0 30px 0px;
-  }
-  .wrap-rows{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 0 0 0 30px;
-  }
-  .row{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    &:not(:first-child){
-      margin-top:30px;
-    }
-  }
-  .wrap-tag, .wrap-details{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    &.time{
-     width: 185px;
-    }
-    &.award{
-      font-size: 20px;
-      width: 485px;
-    }
-  }
-  .wrap-details{
-    margin-left: 40px;
-    & .topic{
-      font-size: 20px;
-      font-weight: bold;
-    }
-    & .detail{
-      font-style: italic;
-    }
-    & .award{
-      width: 400px;
-    }
-    & .extra{
-      width: 400px;
-    }
-  }
-}
-
-#section-4{
-  .wrap-block{
-    margin-top:50px;
-  }
-}
-//Slider
-#slider-1{
-    z-index: 2;
-    position: relative;
-    height: 400px;
-    width: 600px;
-  }
-  .wrap-slide-page{
-    margin: 10px 0 0 10px;
-    position: absolute;
-    z-index:1;
-    color: rgba(256,256,256,.8);
-  }
-  .container-slider-buttons{
-    position: absolute;
-    z-index: 1;
-    height:400px;
-    width: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-  .wrap-slider-buttons{
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-
-  .a-slider{
-    width:20px;
-    height:20px;
-    background-color: rgba(211, 211, 211, 0.63);
-    border-radius: 10px;
-    transition: .3s ease-out;
-    &:nth-child(2){
-      margin:0 5px 0 5px;
-    }
-    &:hover{
-      background-color: rgba(179, 179, 179, 0.5);
-    }
-    &:active{
-      background-color: rgba(255,255,255,.4);
-    }
-  }
-
-  .container-img{
-    position: absolute;
-    width: 600px;
-    height: inherit;
-    overflow: hidden; //這個是關鍵用來擋住 1.很長的wrap-img 2. border radius擋住裡面的圖
-    border-radius: 15px;
-  }
-  .wrap-img{
-    position: absolute;
-    width: 1800px;
-    height: 400px;
-    display:flex;
-    flex-direction: row;
-    // overflow: hidden;
-  }
-  .mask-slider{
-    border-radius: inherit;
-    background-color: rgba(90,90,90,.3);
-    position: absolute;
-    width: 600px;
-    height: inherit;
-  }
-  %img{
-      // border-radius: inherit;
-    background-size: contain; //是說顯示整個張圖，所以會自動偵測比例
-    background-repeat: no-repeat;
-    width: 100%;
-    height:100%;
+  #txt-menu{
     display: inline-block;
+    width: 0px;
+    overflow: hidden;
+    transition: .3s;
   }
-  .pic{
-    @extend %img;
+
+  #nav-toggle{
+    &:hover + #txt-menu{
+      width: 120px;
+    }
   }
-  #img-1{
-    background-image: url(https://salishmagazine.org/wp-content/uploads/2019/07/1-20170819-5038D800-600-400.jpg);
+}
+
+nav {
+  position: fixed;
+  z-index: 1;
+  background-color: #a0855b;
+  transition: 1s ease forward;
+  width: 0;
+  overflow: hidden;
+  ul {
+    padding: 0;
+    list-style: none;
+    li {
+      color: #cfcfcf;
+      transition: .5s ease;
+      &:hover{
+        text-shadow: -1px 0 rgba(54,54,54,.8), 0 1px rgba(54,54,54,.8), 1px 0 rgba(54,54,54,.8), 0 -1px rgba(54,54,54,.8);
+      }
+    }
   }
-  #img-2{
-    background-image: url(https://i2.wp.com/hdtanning.com/wp-content/uploads/2016/11/sea-sunny-person-beach-600x400.jpg?fit=600%2C400&ssl=1);
-  }
-  #img-3{
-    background-image: url(https://i2.wp.com/drleskertay.com/wp-content/uploads/2017/08/NH-sunset-cropped-600x400.jpg?ssl=1);
-  }
+}
