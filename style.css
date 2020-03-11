@@ -7,37 +7,51 @@ body {
   flex-direction: row; }
 
 #nav-entry {
+  z-index: 1;
   position: absolute;
   left: 30px;
-  top: 30px;
+  top: 20px;
   display: flex;
   flex-direction: row;
-  font-size: 40px;
+  justify-content: center;
+  align-items: center;
   color: rgba(54, 54, 54, 0.8);
-  cursor: pointer;
-  border: 1px solid black; }
+  cursor: pointer; }
+  #nav-entry #nav-toggle {
+    font-size: 60px; }
+    #nav-entry #nav-toggle:hover + #txt-menu {
+      width: 120px; }
   #nav-entry #txt-menu {
     display: inline-block;
-    width: 0px;
+    width: 0;
     overflow: hidden;
+    font-size: 40px;
     transition: .3s; }
-  #nav-entry #nav-toggle:hover + #txt-menu {
-    width: 120px; }
 
 nav {
-  position: fixed;
-  z-index: 1;
+  position: absolute;
+  z-index: 0;
   background-color: #a0855b;
-  transition: 1s ease forward;
+  transition: 1s ease;
   width: 0;
-  overflow: hidden; }
+  height: 100%;
+  overflow-x: hidden; }
   nav ul {
-    padding: 0;
-    list-style: none; }
-    nav ul li {
+    position: absolute;
+    padding: 90px 0 0 30px;
+    list-style: none;
+    overflow: hidden;
+    width: inherit; }
+    nav ul li a {
       color: #cfcfcf;
-      transition: .5s ease; }
-      nav ul li:hover {
-        text-shadow: -1px 0 rgba(54, 54, 54, 0.8), 0 1px rgba(54, 54, 54, 0.8), 1px 0 rgba(54, 54, 54, 0.8), 0 -1px rgba(54, 54, 54, 0.8); }
+      display: block;
+      white-space: nowrap;
+      transition: .4s ease;
+      font-size: 25px;
+      width: 140px;
+      text-decoration: none; }
+      nav ul li a:hover {
+        color: #fff;
+        text-shadow: -1px 0 rgba(54, 54, 54, 0.5), 0 1px rgba(54, 54, 54, 0.5), 1px 0 rgba(54, 54, 54, 0.5), 0 -1px rgba(54, 54, 54, 0.5); }
 
 /*# sourceMappingURL=style.css.map */

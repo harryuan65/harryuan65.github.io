@@ -14,45 +14,60 @@ body {
 }
 
 #nav-entry {
+  z-index: 1;
   position: absolute;
   left: 30px;
-  top: 30px;
+  top: 20px;
   display: flex;
   flex-direction: row;
-  font-size: 40px;
+  justify-content: center;
+  align-items: center;
   color: rgba(54,54,54,.8);
   cursor: pointer;
-  border: 1px solid black;
-
-  #txt-menu{
-    display: inline-block;
-    width: 0px;
-    overflow: hidden;
-    transition: .3s;
-  }
 
   #nav-toggle{
+    font-size: 60px;
     &:hover + #txt-menu{
       width: 120px;
     }
   }
+
+  #txt-menu{
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    font-size: 40px;
+    transition: .3s;
+  }
 }
 
 nav {
-  position: fixed;
-  z-index: 1;
+  position: absolute;
+  z-index: 0;
   background-color: #a0855b;
-  transition: 1s ease forward;
+  transition: 1s ease;
   width: 0;
-  overflow: hidden;
+  height: 100%;
+  overflow-x: hidden; //only x else y will overflow
+
   ul {
-    padding: 0;
+    position: absolute;
+    padding: 90px 0 0 30px;
     list-style: none;
-    li {
+    overflow: hidden;
+    width: inherit; //重要
+
+    li a{
       color: #cfcfcf;
-      transition: .5s ease;
+      display: block;
+      white-space: nowrap;
+      transition: .4s ease;
+      font-size: 25px;
+      width: 140px;
+      text-decoration: none;
       &:hover{
-        text-shadow: -1px 0 rgba(54,54,54,.8), 0 1px rgba(54,54,54,.8), 1px 0 rgba(54,54,54,.8), 0 -1px rgba(54,54,54,.8);
+        color: #fff;
+        text-shadow: -1px 0 rgba(54,54,54,.5), 0 1px rgba(54,54,54,.5), 1px 0 rgba(54,54,54,.5), 0 -1px rgba(54,54,54,.5);
       }
     }
   }
