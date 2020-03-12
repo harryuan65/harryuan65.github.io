@@ -1,17 +1,22 @@
 // window.addEventListener('scroll', (e)=>{
 //   console.log(window.scrollY)
 // })
-
 function scrollToAnchor(event){
    event.preventDefault();
-   var anchor = event.target.getAttribute('href');
-   if (anchor.className!='sub-anchor'){
+   var a = event.target;
+   var anchor = a.getAttribute('href');
+   if (a.className!='sub-anchor'){
      closeSubUls();
-     openSubUl(event.target.parentNode.nextElementSibling);
+     var sub_ul = a.parentNode.nextElementSibling;
+     if (sub_ul){
+       openSubUl(sub_ul);
+     }
    }
-   var scrollTarget = document.getElementById(anchor.split('#')[1]);
-   let y =scrollTarget.offsetTop;
-   window.scrollTo({'behavior': 'smooth','top': y});
+    var target_id = anchor.split('#')[1];
+    var scrollTarget = document.getElementById(target_id);
+    console.log(scrollTarget)
+    let y =scrollTarget.offsetTop;
+    window.scrollTo({'behavior': 'smooth','top': y});
 }
 function closeSubUls(){
   document.querySelectorAll('ul.secondary').forEach(ul=>{
@@ -25,13 +30,22 @@ function openSubUl(li){
   }
 }
 function toggleNav(){
+  closeSubUls();
   var nav = document.getElementById("nav"),
   toggler = document.getElementById("nav-entry");
   if(parseInt(nav.style.width.split('px')[0]) > 0){
     nav.style.width = '0';
     toggler.style.color = 'rgba(54,54,54,.8)';
   }else{
-    nav.style.width = '25%';
+    nav.style.width = '400px';
     toggler.style.color = '#d8d8d8';
   }
+}
+
+function closeNav(){
+  closeSubUls();
+  var nav = document.getElementById("nav"),
+  toggler = document.getElementById("nav-entry");
+  nav.style.width = '0';
+  toggler.style.color = 'rgba(54,54,54,.8)';
 }
