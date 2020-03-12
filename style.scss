@@ -16,7 +16,7 @@
 $back-color: rgb(226, 226, 226);
 $nav-transition-time: .8s;
 $font-color: #3e3838;
-
+$ul-secondary-height: 120px;
 html, body {
   margin: 0;
   background-color: $back-color;
@@ -30,8 +30,12 @@ a, a:active, a:visited {
   text-decoration: none;
   color: $font-color;
 }
+ul {
+  list-style: none;
+  padding: 0;
+}
 #nav-entry {
-  z-index: 1;
+  z-index: 2;
   position: fixed;
   left: 50px;
   top: 30px;
@@ -50,8 +54,6 @@ a, a:active, a:visited {
 
 nav {
   position: relative;
-  z-index: 0;
-  // background-color: #a0855b;
   background-color: #6e7da2;
   transition: $nav-transition-time ease;
   width: 0;
@@ -59,21 +61,43 @@ nav {
   overflow-x: hidden; //only x else y will overflow
   border-right: 3px solid rgba(54, 54, 54, .8);
   box-shadow: 0 0 20px grey;
-  ul {
+
+  ul#primary{
     position: fixed;
-    padding: 120px 0 0 30px;
-    list-style: none;
+    padding: 120px 0 0 50px;
     height: auto;
-    li a{
-      display: block;
-      white-space: nowrap;
+  }
+
+  li.primary {
+    a{
       transition: .4s ease;
-      font-size: 25px;
+      font-size: 30px;
       color: #e0e0e0;
       &:hover{
         color: #fff;
         text-shadow: -1px 0 rgba(54,54,54,.5), 0 1px rgba(54,54,54,.5), 1px 0 rgba(54,54,54,.5), 0 -1px rgba(54,54,54,.5);
       }
+    }
+
+    &:hover + li.primary ul.secondary {
+      height: $ul-secondary-height;
+    }
+  }
+
+  ul.secondary{
+    overflow-y: hidden;
+    height: 0;
+    border-left: 2px solid $font-color;
+    margin-left: 20px;
+    padding-left: 20px;
+    transition: .4s ease;
+    &:hover{
+      height: $ul-secondary-height;
+    }
+
+    li.secondary a{
+      font-size: 20px;
+      cursor: pointer;
     }
   }
 }
@@ -90,6 +114,7 @@ main#container{
   transition: $nav-transition-time ease;
 }
 
+
 section{
   font-family: 'NotoSansCJKtc-Light';
   position: relative;
@@ -99,6 +124,9 @@ section{
   background-color: #f9fcfb;
   padding: 30px 0 50px 300px;
   margin-bottom: 100px;
+  &:last-child{
+    margin-bottom: 200px;
+  }
 }
 
 section#me{
@@ -128,18 +156,36 @@ section.info{
   color: $font-color;
   // text-shadow: -1px 0 rgba(54,54,54,.5), 0 1px rgba(54,54,54,.5), 1px 0 rgba(54,54,54,.5), 0 -1px rgba(54,54,54,.5);
 }
+
 .info-title{
   font-size: 60px;
 }
 
-div.item{
+a.item{
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 300px;
 }
 
-img.logo{
-  height: 30px;
-  width: 30px;
+img#github-logo{
+  width: 120px;
+  height: 50px;
+  margin-left: -7px;
+}
+
+img#codepen-logo{
+  width: 170px;
+  height: 35px;
+}
+img#google-logo{
+  width: 40px;
+  height: 40px;
+}
+img#linked-in-logo{
+  width: 150px;
+  height: 40px;
 }
 
 a.info{

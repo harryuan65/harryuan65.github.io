@@ -17,8 +17,12 @@ a, a:active, a:visited {
   text-decoration: none;
   color: #3e3838; }
 
+ul {
+  list-style: none;
+  padding: 0; }
+
 #nav-entry {
-  z-index: 1;
+  z-index: 2;
   position: fixed;
   left: 50px;
   top: 30px;
@@ -34,7 +38,6 @@ a, a:active, a:visited {
 
 nav {
   position: relative;
-  z-index: 0;
   background-color: #6e7da2;
   transition: 0.8s ease;
   width: 0;
@@ -42,20 +45,31 @@ nav {
   overflow-x: hidden;
   border-right: 3px solid rgba(54, 54, 54, 0.8);
   box-shadow: 0 0 20px grey; }
-  nav ul {
+  nav ul#primary {
     position: fixed;
-    padding: 120px 0 0 30px;
-    list-style: none;
+    padding: 120px 0 0 50px;
     height: auto; }
-    nav ul li a {
-      display: block;
-      white-space: nowrap;
-      transition: .4s ease;
-      font-size: 25px;
-      color: #e0e0e0; }
-      nav ul li a:hover {
-        color: #fff;
-        text-shadow: -1px 0 rgba(54, 54, 54, 0.5), 0 1px rgba(54, 54, 54, 0.5), 1px 0 rgba(54, 54, 54, 0.5), 0 -1px rgba(54, 54, 54, 0.5); }
+  nav li.primary a {
+    transition: .4s ease;
+    font-size: 30px;
+    color: #e0e0e0; }
+    nav li.primary a:hover {
+      color: #fff;
+      text-shadow: -1px 0 rgba(54, 54, 54, 0.5), 0 1px rgba(54, 54, 54, 0.5), 1px 0 rgba(54, 54, 54, 0.5), 0 -1px rgba(54, 54, 54, 0.5); }
+  nav li.primary:hover + li.primary ul.secondary {
+    height: 120px; }
+  nav ul.secondary {
+    overflow-y: hidden;
+    height: 0;
+    border-left: 2px solid #3e3838;
+    margin-left: 20px;
+    padding-left: 20px;
+    transition: .4s ease; }
+    nav ul.secondary:hover {
+      height: 120px; }
+    nav ul.secondary li.secondary a {
+      font-size: 20px;
+      cursor: pointer; }
 
 main#container {
   background-color: #e2e2e2;
@@ -77,6 +91,8 @@ section {
   background-color: #f9fcfb;
   padding: 30px 0 50px 300px;
   margin-bottom: 100px; }
+  section:last-child {
+    margin-bottom: 200px; }
 
 section#me {
   flex-direction: row;
@@ -103,13 +119,29 @@ section.info {
 .info-title {
   font-size: 60px; }
 
-div.item {
+a.item {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 300px; }
 
-img.logo {
-  height: 30px;
-  width: 30px; }
+img#github-logo {
+  width: 120px;
+  height: 50px;
+  margin-left: -7px; }
+
+img#codepen-logo {
+  width: 170px;
+  height: 35px; }
+
+img#google-logo {
+  width: 40px;
+  height: 40px; }
+
+img#linked-in-logo {
+  width: 150px;
+  height: 40px; }
 
 a.info {
   font-size: 20px;

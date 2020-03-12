@@ -1,3 +1,14 @@
+window.addEventListener('scroll', (e)=>{
+  console.log(window.scrollY)
+})
+
+function scrollToAnchor(event){
+   event.preventDefault();
+   var anchor = event.target.getAttribute('href');
+   var scrollTarget = document.getElementById(anchor.split('#')[1]);
+   let y =scrollTarget.offsetTop;
+   window.scrollTo({'behavior': 'smooth','top': y});
+}
 function toggleNav(){
   var nav = document.getElementById("nav"),
   toggler = document.getElementById("nav-entry");
