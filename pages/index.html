@@ -11,15 +11,36 @@
     <title>Harry Yuan</title>
 </head>
 <body>
-  <div id="nav-entry"><div id="nav-toggle" onclick="toggleNav()">&#9776;</div><span id="txt-menu">&nbsp;Menu</span></div>
+  <div id="nav-entry"><div id="nav-toggle" onclick="toggleNav()">&#9776;</div></div>
   <nav id="nav">
     <ul>
-      <li><a href="#">About Me</a></li>
-      <li><a href="#">Works</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Posts</a></li>
+      <li><a href="#me">About Me</a></li>
+      <li><a href="#background">Background</a></li>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+  <main id="container">
+    <section id="me">
+      <img src="../images/harry_profile.png" id="me" alt="harry_yuan"/>
+      <span id="name">Harry Yuan</span>
+    </section>
+    <section id="background" class="info">
+      <h1 class="info-title">Background</h1>
+      <ul>
+
+      </ul>
+    </section>
+    <section id="works" class="info">
+      <h1 class="info-title">Works</h1>
+      <div class="item"><img src="../images/GitHub-Mark-64px.png" alt="github-logo" id="github-logo" class="logo"><a id="github" class="info" href="https://github.com/harryuan65">&nbsp;Github - &nbsp;@harryuan65</a></div>
+      <div class="item"><img src="../images/Codepen-BFBL.png" alt="codepen-logo" id="codepen-logo" class="logo"><a id="github" class="info" href="https://codepen.io/harryuan65/">&nbsp;Codepen - &nbsp;@harryuan65</a></div>
+    </section>
+    <section id="contact" class="info">
+      <h1 class="info-title">Contact</h1>
+      <div class="item"><a id="email">harryuan.65@gmail.com</a></div>
+    </section>
+  </main>
 </body>
 </html>
 <!--

@@ -5,7 +5,7 @@ function toggleNav(){
     nav.style.width = '0';
     toggler.style.color = 'rgba(54,54,54,.8)';
   }else{
-    nav.style.width = '250px';
+    nav.style.width = '25%';
     toggler.style.color = '#d8d8d8';
   }
 }
