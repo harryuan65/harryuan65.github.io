@@ -69,18 +69,16 @@ nav {
   }
 
   li.primary {
+    padding-top: 5px;
+
     a{
-      transition: .4s ease;
+      transition: .3s ease;
       font-size: 30px;
-      color: #e0e0e0;
+      color: #dadada;
       &:hover{
         color: #fff;
         text-shadow: -1px 0 rgba(54,54,54,.5), 0 1px rgba(54,54,54,.5), 1px 0 rgba(54,54,54,.5), 0 -1px rgba(54,54,54,.5);
       }
-    }
-
-    &:hover + li.primary ul.secondary {
-      height: $ul-secondary-height;
     }
   }
 
@@ -90,10 +88,7 @@ nav {
     border-left: 2px solid $font-color;
     margin-left: 20px;
     padding-left: 20px;
-    transition: .4s ease;
-    &:hover{
-      height: $ul-secondary-height;
-    }
+    transition: .8s ease;
 
     li.secondary a{
       font-size: 20px;

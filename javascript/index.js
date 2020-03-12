@@ -1,13 +1,28 @@
-window.addEventListener('scroll', (e)=>{
-  console.log(window.scrollY)
-})
+// window.addEventListener('scroll', (e)=>{
+//   console.log(window.scrollY)
+// })
 
 function scrollToAnchor(event){
    event.preventDefault();
    var anchor = event.target.getAttribute('href');
+   if (anchor.className!='sub-anchor'){
+     closeSubUls();
+     openSubUl(event.target.parentNode.nextElementSibling);
+   }
    var scrollTarget = document.getElementById(anchor.split('#')[1]);
    let y =scrollTarget.offsetTop;
    window.scrollTo({'behavior': 'smooth','top': y});
+}
+function closeSubUls(){
+  document.querySelectorAll('ul.secondary').forEach(ul=>{
+    ul.style.height = '0';
+  });
+}
+function openSubUl(li){
+  var sub_ul = li.firstElementChild;
+  if(sub_ul){
+    sub_ul.style.height = '120px';
+  }
 }
 function toggleNav(){
   var nav = document.getElementById("nav"),

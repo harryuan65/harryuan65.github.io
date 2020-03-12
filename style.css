@@ -49,24 +49,22 @@ nav {
     position: fixed;
     padding: 120px 0 0 50px;
     height: auto; }
-  nav li.primary a {
-    transition: .4s ease;
-    font-size: 30px;
-    color: #e0e0e0; }
-    nav li.primary a:hover {
-      color: #fff;
-      text-shadow: -1px 0 rgba(54, 54, 54, 0.5), 0 1px rgba(54, 54, 54, 0.5), 1px 0 rgba(54, 54, 54, 0.5), 0 -1px rgba(54, 54, 54, 0.5); }
-  nav li.primary:hover + li.primary ul.secondary {
-    height: 120px; }
+  nav li.primary {
+    padding-top: 5px; }
+    nav li.primary a {
+      transition: .3s ease;
+      font-size: 30px;
+      color: #dadada; }
+      nav li.primary a:hover {
+        color: #fff;
+        text-shadow: -1px 0 rgba(54, 54, 54, 0.5), 0 1px rgba(54, 54, 54, 0.5), 1px 0 rgba(54, 54, 54, 0.5), 0 -1px rgba(54, 54, 54, 0.5); }
   nav ul.secondary {
     overflow-y: hidden;
     height: 0;
     border-left: 2px solid #3e3838;
     margin-left: 20px;
     padding-left: 20px;
-    transition: .4s ease; }
-    nav ul.secondary:hover {
-      height: 120px; }
+    transition: .8s ease; }
     nav ul.secondary li.secondary a {
       font-size: 20px;
       cursor: pointer; }
