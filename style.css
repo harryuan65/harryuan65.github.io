@@ -109,7 +109,7 @@ div#wrap-short-info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 80px; }
+  margin-right: 5%; }
 
 div#wrap-short-info-skills {
   padding-top: 20px; }
@@ -133,9 +133,27 @@ span#name {
 
 @keyframes arrow-pulsating {
   0% {
-    margin-left: 30px; }
+    margin-left: 0; }
   100% {
-    margin-left: 0; } }
+    margin-left: 10px; } }
+.arrow-wrap {
+  display: inline-block;
+  width: 30px; }
+
+.arrow {
+  content: '';
+  height: 0;
+  width: 0;
+  border-style: solid none solid solid;
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent #3e3838;
+  padding-right: 30px;
+  animation: arrow-pulsating .5s alternate infinite; }
+
+ul.aboutme li {
+  display: flex;
+  align-items: center; }
+
 section.info {
   justify-content: flex-start;
   align-items: flex-start;
@@ -147,7 +165,7 @@ section.info {
   font-weight: 900; }
 
 .info-subtitle {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 900; }
 
 a.info-item {
