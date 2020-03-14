@@ -14,9 +14,14 @@
 }
 
 $back-color: rgb(226, 226, 226);
+$nav-back-color: #6e7da2;
+$nav-item-default-color: #dadada;
+$nav-item-hover-color: #fff;
+$nav-item-active-color: #888;
 $nav-transition-time: .8s;
 $font-color: #3e3838;
 $ul-secondary-height: 120px;
+$section-back-color: #f9fcfb;
 html, body {
   margin: 0;
   background-color: $back-color;
@@ -54,12 +59,12 @@ ul {
 
 nav {
   position: relative;
-  background-color: #6e7da2;
+  background-color: $nav-back-color;
   transition: $nav-transition-time ease;
   width: 0;
   height: inherit;
   overflow-x: hidden; //only x else y will overflow
-  border-right: 3px solid rgba(54, 54, 54, .8);
+  border-right: 3px solid $font-color;
   box-shadow: 0 0 20px grey;
 
   ul#primary{
@@ -74,15 +79,15 @@ nav {
     a{
       transition: .1s ease;
       font-size: 30px;
-      color: #dadada;
+      color: $nav-item-default-color;
       &:hover{
-        color: #fff;
-        text-shadow: -1px 0 rgba(54,54,54,.5), 0 1px rgba(54,54,54,.5), 1px 0 rgba(54,54,54,.5), 0 -1px rgba(54,54,54,.5);
-        filter: drop-shadow(1px 1px 1px grey);
+        color: $nav-item-hover-color;
+        text-shadow: -1px 0 $font-color, 0 1px $font-color, 1px 0 $font-color, 0 -1px $font-color;
+        filter: drop-shadow(1px 1px 1px $font-color);
       }
       &:active{
-        color: #888;
-        filter: drop-shadow(2px 2px 2px black);
+        color: $nav-item-active-color;
+        filter: drop-shadow(2px 2px 2px $back-color);
       }
     }
   }
@@ -114,63 +119,124 @@ main#container{
   transition: $nav-transition-time ease;
 }
 
-
 section{
   font-family: 'NotoSansCJKtc-Light';
   position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
   min-height: 500px;
   width: inherit;
-  display: flex;
-  background-color: #f9fcfb;
+  background-color: $section-back-color;
   margin-bottom: 100px;
   &:last-child{
     margin-bottom: 200px;
   }
-  padding: 10px 0 50px 250px;
+  color: $font-color;
 }
 
-div.section-body{
-  padding-left:30px;
+.section-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 400px;
+
+  &:first-child{
+    flex-direction: row;
+    align-items: center;
+    padding-right: 0;
+  }
+
+  .info-title{
+    font-size: 50px;
+    font-weight: 900;
+    &::after{
+      content: '';
+      height: 0;
+      width: 0;
+      border-right: 3px solid $font-color;
+      margin: 0 70px 0 70px;
+    }
+  }
+
+  .wrap-info-items{
+    .info-subtitle{
+      font-size: 20px;
+      font-weight: 900;
+    }
+    li{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      &:not(:first-child){
+        padding-top: 30px;
+      }
+    }
+    a.info-item{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      width: 300px;
+      padding-top: 30px;
+      &:last-child{
+        padding-bottom: 50px;
+      }
+    }
+  }
 }
 
-section#me{
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 30px 0 50px 300px;
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+  }
+  to{
+   opacity: 1;
+  }
+}
+@keyframes padding-right30{
+from {padding-right: 0px;}
+to {padding-right: 30px;}
+}
+$fadeIn: 'fadeIn 1s .5s forwards';
+$pr30: 'padding-right30 1s .5s forwards';
+img#me{
+  opacity: 0;
+  height: 250px;
+  width: 250px;
+  animation: unquote($fadeIn), unquote($pr30);
 }
 
-div#wrap-short-info{
+#name{
+  font-size: 50px;
+  color: $font-color;
+  font-weight: bold;
+}
+
+div#wrap-name-skills{
+  opacity: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 5%;
+  padding-bottom: 50px;
+  animation: unquote($fadeIn);
 }
 
-div#wrap-short-info-skills{
-  padding-top: 20px;
+div#wrap-skills{
+  margin-top: 20px;
 }
 
-span.wrap-short-info-skill:not(:first-child)::before{
-  height: 15px;
+span.skill:not(:first-child)::before{
+  height: 10px;
   border: 1px solid $font-color;
   content: '';
   margin: 0 5px 0 5px;
   border-style: solid;
 }
 
-
-img#me{
-  height: 250px;
-  width: 250px;
-  margin-right: 80px;
-}
-
-span#name{
-  font-size: 50px;
-  color: $font-color;
-  font-weight: bold;
-}
 @keyframes arrow-pulsating{
   0%{
     margin-left: 0;
@@ -184,6 +250,7 @@ span#name{
   display: inline-block;
   width: 30px;
 }
+
 .arrow{
   content: '';
   height: 0;
@@ -198,33 +265,6 @@ span#name{
 ul.aboutme li{
   display: flex;
   align-items: center;
-}
-
-section.info{
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  color: $font-color;
-  // text-shadow: -1px 0 rgba(54,54,54,.5), 0 1px rgba(54,54,54,.5), 1px 0 rgba(54,54,54,.5), 0 -1px rgba(54,54,54,.5);
-}
-
-.info-title{
-  font-size: 50px;
-  font-weight: 900;
-}
-
-.info-subtitle{
-  font-size: 20px;
-  font-weight: 900;
-}
-
-a.info-item{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  width: 300px;
-  padding-top: 30px;
 }
 
 img#github-logo{

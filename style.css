@@ -43,7 +43,7 @@ nav {
   width: 0;
   height: inherit;
   overflow-x: hidden;
-  border-right: 3px solid rgba(54, 54, 54, 0.8);
+  border-right: 3px solid #3e3838;
   box-shadow: 0 0 20px grey; }
   nav ul#primary {
     position: fixed;
@@ -57,11 +57,11 @@ nav {
       color: #dadada; }
       nav li.primary a:hover {
         color: #fff;
-        text-shadow: -1px 0 rgba(54, 54, 54, 0.5), 0 1px rgba(54, 54, 54, 0.5), 1px 0 rgba(54, 54, 54, 0.5), 0 -1px rgba(54, 54, 54, 0.5);
-        filter: drop-shadow(1px 1px 1px grey); }
+        text-shadow: -1px 0 #3e3838, 0 1px #3e3838, 1px 0 #3e3838, 0 -1px #3e3838;
+        filter: drop-shadow(1px 1px 1px #3e3838); }
       nav li.primary a:active {
         color: #888;
-        filter: drop-shadow(2px 2px 2px black); }
+        filter: drop-shadow(2px 2px 2px #e2e2e2); }
   nav ul.secondary {
     overflow-y: hidden;
     height: 0;
@@ -87,49 +87,94 @@ main#container {
 section {
   font-family: 'NotoSansCJKtc-Light';
   position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   min-height: 500px;
   width: inherit;
-  display: flex;
   background-color: #f9fcfb;
   margin-bottom: 100px;
-  padding: 10px 0 50px 250px; }
+  color: #3e3838; }
   section:last-child {
     margin-bottom: 200px; }
 
-div.section-body {
-  padding-left: 30px; }
+.section-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 400px; }
+  .section-body:first-child {
+    flex-direction: row;
+    align-items: center;
+    padding-right: 0; }
+  .section-body .info-title {
+    font-size: 50px;
+    font-weight: 900; }
+    .section-body .info-title::after {
+      content: '';
+      height: 0;
+      width: 0;
+      border-right: 3px solid #3e3838;
+      margin: 0 70px 0 70px; }
+  .section-body .wrap-info-items .info-subtitle {
+    font-size: 20px;
+    font-weight: 900; }
+  .section-body .wrap-info-items li {
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .section-body .wrap-info-items li:not(:first-child) {
+      padding-top: 30px; }
+  .section-body .wrap-info-items a.info-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 300px;
+    padding-top: 30px; }
+    .section-body .wrap-info-items a.info-item:last-child {
+      padding-bottom: 50px; }
 
-section#me {
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 30px 0 50px 300px; }
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes padding-right30 {
+  from {
+    padding-right: 0px; }
+  to {
+    padding-right: 30px; } }
+img#me {
+  opacity: 0;
+  height: 250px;
+  width: 250px;
+  animation: fadeIn 1s .5s forwards, padding-right30 1s .5s forwards; }
 
-div#wrap-short-info {
+#name {
+  font-size: 50px;
+  color: #3e3838;
+  font-weight: bold; }
+
+div#wrap-name-skills {
+  opacity: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 5%; }
+  padding-bottom: 50px;
+  animation: fadeIn 1s .5s forwards; }
 
-div#wrap-short-info-skills {
-  padding-top: 20px; }
+div#wrap-skills {
+  margin-top: 20px; }
 
-span.wrap-short-info-skill:not(:first-child)::before {
-  height: 15px;
+span.skill:not(:first-child)::before {
+  height: 10px;
   border: 1px solid #3e3838;
   content: '';
   margin: 0 5px 0 5px;
   border-style: solid; }
-
-img#me {
-  height: 250px;
-  width: 250px;
-  margin-right: 80px; }
-
-span#name {
-  font-size: 50px;
-  color: #3e3838;
-  font-weight: bold; }
 
 @keyframes arrow-pulsating {
   0% {
@@ -153,28 +198,6 @@ span#name {
 ul.aboutme li {
   display: flex;
   align-items: center; }
-
-section.info {
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  color: #3e3838; }
-
-.info-title {
-  font-size: 50px;
-  font-weight: 900; }
-
-.info-subtitle {
-  font-size: 20px;
-  font-weight: 900; }
-
-a.info-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  width: 300px;
-  padding-top: 30px; }
 
 img#github-logo {
   width: 120px;

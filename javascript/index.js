@@ -1,6 +1,10 @@
-// window.addEventListener('scroll', (e)=>{
-//   console.log(window.scrollY)
-// })
+window.addEventListener('resize', (e)=>{
+  console.log(window.innerWidth)
+})
+
+window.onload = ()=>{
+  window.scrollTo({'behavior': 'smooth','top': 0});
+}
 function scrollToAnchor(event){
    event.preventDefault();
    var a = event.target;
@@ -31,6 +35,7 @@ function openSubUl(li){
 }
 function toggleNav(){
   closeSubUls();
+  detectSwitchMeView();
   var nav = document.getElementById("nav"),
   toggler = document.getElementById("nav-entry");
   if(parseInt(nav.style.width.split('px')[0]) > 0){
@@ -44,8 +49,34 @@ function toggleNav(){
 
 function closeNav(){
   closeSubUls();
+  detectSwitchMeView();
   var nav = document.getElementById("nav"),
   toggler = document.getElementById("nav-entry");
   nav.style.width = '0';
   toggler.style.color = 'rgba(54,54,54,.8)';
+}
+
+function detectSwitchMeView(){
+  //wait for nav animation ends then compute container width
+  setTimeout(function(){
+    var container = document.getElementById('container'),
+    sectionBodyMe = document.getElementById('me-section-body'),
+    name = document.getElementById('name');
+    containerWidth = parseInt(window.getComputedStyle(container).width.split('px')[0])
+
+    console.log(containerWidth)
+    if(containerWidth < 1200){
+      sectionBodyMe.style.flexDirection='column';
+      sectionBodyMe.style.justifyContent='center';
+      sectionBodyMe.style.alignItems='center';
+      name.style.marginTop = '40px'
+      name.style.fontSize = '40px'
+    }
+    else{
+      sectionBodyMe.style.flexDirection='row';
+      sectionBodyMe.style.alignItems='center';
+      name.style.marginTop = '0px'
+      name.style.fontSize = '50px'
+    }
+  },500)
 }

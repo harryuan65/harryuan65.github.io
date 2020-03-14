@@ -33,22 +33,21 @@
   <!-- https://www.cakeresume.com/harry-yuan -->
   <main id="container" onclick="closeNav()">
     <section id="me">
-      <img src="../images/harry_profile.png" id="me" alt="harry_yuan"/>
-      <div id="wrap-short-info">
-        <span id="name">Harry Yuan</span>
-        <div id="wrap-short-info-skills">
-          <span class="wrap-short-info-skill">Ruby on Rails</span>
-          <span class="wrap-short-info-skill">Restful API</span>
-          <span class="wrap-short-info-skill">HTML5 x CSS x ES6</span>
-          <span class="wrap-short-info-skill">TOEIC<strong>940</strong></span>
+      <div id="me-section-body" class="section-body">
+        <img src="../images/harry_profile.png" id="me" alt="harry_yuan"/>
+        <div id="wrap-name-skills">
+          <span id="name">Harry Yuan</span>
+          <div id="skills">
+            <strong>Ruby on Rails</strong>/<strong>Restful API</strong>/<strong>HTML5</strong> x <strong>CSS</strong> x <strong>ES6/TOEIC<strong>940</strong>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="aboutme" class="info">
-      <h1 class="info-title">About Me</h1>
       <div class="section-body">
-        <ul class="aboutme">
+        <h1 class="info-title">About Me</h1>
+        <ul class="wrap-info-items">
         <li>
           <div class="arrow-wrap"><div class="arrow"></div></div>
           <span class="info-subtitle about" id="education">Education</span>
@@ -78,50 +77,51 @@
            </div>
         </li>
         </ul>
-        <div class="padding50"></div>
       </div>
     </section>
 
     <section id="portfolio" class="info">
-      <h1 class="info-title">Portfolio</h1>
       <div class="section-body">
-        <a class="info-item" href="https://github.com/harryuan65" target="_blank">
-          <img src="../images/GitHub_Logo.png" alt="github-logo" id="github-logo" />
-          <span class="info-text">&nbsp; - &nbsp;harryuan65</span>
-        </a>
-        <a class="info-item" href="https://codepen.io/harryuan65/" target="_blank">
-          <img src="../images/codepen-wordmark-display-inside-black@10x.png" alt="codepen-logo" id="codepen-logo" />
-          <span class="info-text">&nbsp; - &nbsp;harryuan65</span>
-        </a>
-        <div class="padding50"></div>
+      <h1 class="info-title">Portfolio</h1>
+        <div class="wrap-info-items">
+          <a class="info-item" href="https://github.com/harryuan65" target="_blank">
+            <div class="arrow-wrap"><div class="arrow"></div></div>
+            <img src="../images/GitHub_Logo.png" alt="github-logo" id="github-logo" />
+            <span class="info-text">&nbsp; - &nbsp;harryuan65</span>
+          </a>
+          <a class="info-item" href="https://codepen.io/harryuan65/" target="_blank">
+            <div class="arrow-wrap"><div class="arrow"></div></div>
+            <img src="../images/codepen-wordmark-display-inside-black@10x.png" alt="codepen-logo" id="codepen-logo" />
+            <span class="info-text">&nbsp; - &nbsp;harryuan65</span>
+          </a>
+        </div>
       </div>
     </section>
 
     <section id="contact" class="info">
-      <h1 class="info-title">Contact</h1>
       <div class="section-body">
-        <span class="info-subtitle">Gmail</span>
-        <a class="info-item info-contact" href="mailto:harryuan.65@gmail.com">
-          <img src="../images/gmail-logo.png" alt="google-logo" id="google-logo" />
-          <span class="info-text">&nbsp; - &nbsp;harryuan.65@gmail.com</span>
-        </a>
-        <span class="info-subtitle">Others</span>
-        <a class="info-item info-contact" href="https://www.cakeresume.com/harry-yuan" target="_blank">
-          <span class="info-text">&nbsp; CakeResume &nbsp; </span>
-          <img src="../images/cake-resume.png" alt="cakeresume-logo" id="cakeresume-logo" />
-        </a>
-        <a class="info-item info-contact" href="https://tw.linkedin.com/in/harry-yuan-22425a18b" target="_blank">
-          <span class="info-text">&nbsp; LinkedIn&nbsp; </span>
-          <img src="../images/LI-Logo.png" alt="linked-in-logo" id="linked-in-logo" />
-        </a>
-        <div class="padding50"></div>
+        <h1 class="info-title">Contact</h1>
+        <div class="wrap-info-items">
+          <a class="info-item info-contact" href="mailto:harryuan.65@gmail.com">
+            <img src="../images/gmail-logo.png" alt="google-logo" id="google-logo" />
+            <span class="info-text">&nbsp; - &nbsp;harryuan.65@gmail.com</span>
+          </a>
+          <a class="info-item info-contact" href="https://www.cakeresume.com/harry-yuan" target="_blank">
+            <img src="../images/cake-resume.png" alt="cakeresume-logo" id="cakeresume-logo" />
+            <span class="info-text">&nbsp; CakeResume &nbsp; </span>
+          </a>
+          <a class="info-item info-contact" href="https://tw.linkedin.com/in/harry-yuan-22425a18b" target="_blank">
+            <img src="../images/LI-Logo.png" alt="linked-in-logo" id="linked-in-logo" />
+            <span class="info-text">&nbsp; LinkedIn&nbsp; </span>
+          </a>
+        </div>
       </div>
     </section>
   </main>
 </body>
 </html>
 <!--
-<div id="slider-1" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="100">
+<div id="slider-1">
     <div class="wrap-slide-page">
       <span id="current-slide"></span>
       <span>/</span>
