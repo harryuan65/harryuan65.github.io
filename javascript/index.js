@@ -1,9 +1,9 @@
 window.addEventListener('resize', (e)=>{
-  console.log(window.innerWidth)
+  // console.log(window.innerWidth)
 })
 
 window.onload = ()=>{
-  window.scrollTo({'behavior': 'smooth','top': 0});
+  // window.scrollTo({'behavior': 'smooth','top': 0});
 }
 function scrollToAnchor(event){
    event.preventDefault();
