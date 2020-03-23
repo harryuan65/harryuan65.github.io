@@ -1,12 +1,15 @@
 window.addEventListener('resize', (e)=>{
   // console.log(window.innerWidth)
 })
-
+window.addEventListener('scroll', (e)=>{
+  let c = document.body
+  // let c = document.getElementById('container')
+  console.log(c.scrollTop);
+})
 window.onload = ()=>{
   // window.scrollTo({'behavior': 'smooth','top': 0});
 }
 function scrollToAnchor(event){
-   event.preventDefault();
    var a = event.target;
    var anchor = a.getAttribute('href');
    if (a.className!='sub-anchor'){
@@ -16,11 +19,6 @@ function scrollToAnchor(event){
        openSubUl(sub_ul);
      }
    }
-    var target_id = anchor.split('#')[1];
-    var scrollTarget = document.getElementById(target_id);
-    console.log(scrollTarget)
-    let y =scrollTarget.offsetTop;
-    window.scrollTo({'behavior': 'smooth','top': y});
 }
 function closeSubUls(){
   document.querySelectorAll('ul.secondary').forEach(ul=>{

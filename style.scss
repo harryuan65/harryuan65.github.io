@@ -22,15 +22,19 @@ $nav-transition-time: .8s;
 $font-color: #3e3838;
 $ul-secondary-height: 120px;
 $section-back-color: #f9fcfb;
+
 html, body {
   margin: 0;
   background-color: $back-color;
+  scroll-behavior: smooth;
 }
+
 body {
   font-family: 'GenJyuuGothic-Regular';
   display: flex;
   flex-direction: row;
 }
+
 a, a:active, a:visited {
   text-decoration: none;
   color: $font-color;
@@ -106,15 +110,16 @@ nav {
     }
   }
 }
-
+//Anchors
+h2#extra-participation ,h2#skills, h2#experiences, h2#education{
+  padding-top: 20px;
+}
 main#container{
   background-color: $back-color;
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
   width: 100%;
-  overflow: hidden;
   left: 0;
   transition: $nav-transition-time ease;
 }
@@ -153,7 +158,7 @@ section{
   .info-title{
     font-size: 50px;
     font-weight: 900;
-    &::after{
+    &:not(.aboutme)::after{
       content: '';
       height: 0;
       width: 0;
@@ -203,6 +208,7 @@ to {padding-right: 30px;}
 }
 $fadeIn: 'fadeIn 1s .5s forwards';
 $pr30: 'padding-right30 1s .5s forwards';
+
 img#me{
   opacity: 0;
   height: 250px;
@@ -223,10 +229,6 @@ div#wrap-name-skills{
   align-items: center;
   padding-bottom: 50px;
   animation: unquote($fadeIn);
-}
-
-div#wrap-skills{
-  margin-top: 20px;
 }
 
 span.skill:not(:first-child)::before{
@@ -262,11 +264,100 @@ span.skill:not(:first-child)::before{
   animation: arrow-pulsating .5s alternate infinite;
 }
 
-ul.aboutme li{
-  display: flex;
-  align-items: center;
+.about-block:not(:first-child){
+  margin-top: 100px;
 }
 
+.about-block:last-child{
+  margin-bottom: 100px;
+}
+
+.aboutme-title{
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.wrap-topic{
+  padding-left: 30px;
+}
+
+//Education
+#img-ntpu{
+  height: 350px;
+  width: 620px;
+  padding-top: 30px;
+}
+.mobile-edu{
+  display: none;
+}
+//Experiences
+.experience{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.time{
+  padding-left: 30px;
+}
+
+.position{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  img.goodnight{
+    width: 50px;
+    height: 50px;
+    padding-right: 10px;
+  }
+}
+
+//Skills
+.img-skill{
+  margin-right: 10px;
+}
+
+.title-skill{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  &:not(:first-child){
+    margin-top: 50px;
+  }
+  font-size: 24px;
+}
+
+.description {
+  padding-left: 40px;
+  font-size: 20px;
+  font-style: italic;
+}
+
+img#postgres{
+  height: 30px;
+  width: 30px;
+}
+
+img#html-css-js{
+  height: 30px;
+  width: 48px;
+  // padding-top: 30px;
+}
+img#dokku{
+  height: 25px;
+  width: 30px;
+}
+
+img#ruby{
+  height: 30px;
+  width: 30px;
+}
+
+img#linux{
+  height: 30px;
+  width: 25px;
+}
+
+// Portfolios
 img#github-logo{
   width: 120px;
   height: 50px;
@@ -312,10 +403,25 @@ a.info-contact{
   }
 }
 
-div.padding50{
-  padding-bottom: 50px;
+//Extra participation
+.participation{
+  font-weight: 900;
 }
 
+.part-desc{
+  padding-left: 20px;
+  &::before{
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    background-color: $font-color;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+}
+//slider
 #slider-1{
   position: relative;
   height: 400px;
@@ -401,4 +507,111 @@ div.padding50{
 }
 #img-3{
   background-image: url(https://i2.wp.com/drleskertay.com/wp-content/uploads/2017/08/NH-sunset-cropped-600x400.jpg?ssl=1);
+}
+
+@media only screen and (max-width:500px){
+  #nav-entry{
+    position: static;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    border-bottom: 1px solid $nav-item-default-color;
+    background-color: $font-color;
+    #nav-toggle{
+      position: relative;
+      font-size: 90px;
+      color: $back-color;
+    }
+  }
+
+  nav{
+    position: fixed;
+    display: none;
+  }
+
+  main#container{
+    position: absolute;
+    width: 100%;
+  }
+
+  // me photo name
+  section:first-child{
+    padding-top: 100px;
+  }
+
+  #name{
+    padding-top: 40px;
+    font-size: 40px;
+  }
+  #short-skills{
+    display: none;
+  }
+  .section-body:first-child{
+    flex-direction: column;
+  }
+
+  .wrap-topic{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // aboutme
+  #aboutme::after{
+    display: block;
+    content: '';
+    height: 0;
+    width: 100%;
+    border-bottom: 2px solid $font-color;
+    padding-top: 30px;
+  }
+
+  .about-block{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+  .title-skill{
+    font-size: 18px;
+    padding-left:  30px;
+  }
+  // education
+  #img-ntpu{
+    height: 125px;
+    width: 270px;
+  }
+  .web-edu{
+    display: none;
+  }
+  .mobile-edu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 70px;
+    padding-left: 20px;
+    border-left: 3px solid $font-color;
+  }
+  .mobile-edu-desc{
+    font-size: 18px;
+  }
+  //skills
+  .description{
+    display: none;
+  }
+  //participation
+   .part-desc{
+     display:none;
+   }
+   #extra-participation ~ .wrap-topic{
+     align-items: flex-start;
+   }
 }

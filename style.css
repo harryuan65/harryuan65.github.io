@@ -6,7 +6,8 @@
   src: url("./fonts/NotoSansCJKtc-Light.otf") format("opentype"); }
 html, body {
   margin: 0;
-  background-color: #e2e2e2; }
+  background-color: #e2e2e2;
+  scroll-behavior: smooth; }
 
 body {
   font-family: 'GenJyuuGothic-Regular';
@@ -73,14 +74,15 @@ nav {
       font-size: 20px;
       cursor: pointer; }
 
+h2#extra-participation, h2#skills, h2#experiences, h2#education {
+  padding-top: 20px; }
+
 main#container {
   background-color: #e2e2e2;
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
   width: 100%;
-  overflow: hidden;
   left: 0;
   transition: 0.8s ease; }
 
@@ -112,7 +114,7 @@ section {
   .section-body .info-title {
     font-size: 50px;
     font-weight: 900; }
-    .section-body .info-title::after {
+    .section-body .info-title:not(.aboutme)::after {
       content: '';
       height: 0;
       width: 0;
@@ -166,9 +168,6 @@ div#wrap-name-skills {
   padding-bottom: 50px;
   animation: fadeIn 1s .5s forwards; }
 
-div#wrap-skills {
-  margin-top: 20px; }
-
 span.skill:not(:first-child)::before {
   height: 10px;
   border: 1px solid #3e3838;
@@ -195,9 +194,79 @@ span.skill:not(:first-child)::before {
   padding-right: 30px;
   animation: arrow-pulsating .5s alternate infinite; }
 
-ul.aboutme li {
+.about-block:not(:first-child) {
+  margin-top: 100px; }
+
+.about-block:last-child {
+  margin-bottom: 100px; }
+
+.aboutme-title {
+  font-size: 34px;
+  font-weight: 900; }
+
+.wrap-topic {
+  padding-left: 30px; }
+
+#img-ntpu {
+  height: 350px;
+  width: 620px;
+  padding-top: 30px; }
+
+.mobile-edu {
+  display: none; }
+
+.experience {
   display: flex;
+  justify-content: space-between;
   align-items: center; }
+
+.time {
+  padding-left: 30px; }
+
+.position {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .position img.goodnight {
+    width: 50px;
+    height: 50px;
+    padding-right: 10px; }
+
+.img-skill {
+  margin-right: 10px; }
+
+.title-skill {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  font-size: 24px; }
+  .title-skill:not(:first-child) {
+    margin-top: 50px; }
+
+.description {
+  padding-left: 40px;
+  font-size: 20px;
+  font-style: italic; }
+
+img#postgres {
+  height: 30px;
+  width: 30px; }
+
+img#html-css-js {
+  height: 30px;
+  width: 48px; }
+
+img#dokku {
+  height: 25px;
+  width: 30px; }
+
+img#ruby {
+  height: 30px;
+  width: 30px; }
+
+img#linux {
+  height: 30px;
+  width: 25px; }
 
 img#github-logo {
   width: 120px;
@@ -236,8 +305,20 @@ a.info-contact {
     border-color: transparent transparent transparent #3e3838;
     padding-right: 30px; }
 
-div.padding50 {
-  padding-bottom: 50px; }
+.participation {
+  font-weight: 900; }
+
+.part-desc {
+  padding-left: 20px; }
+  .part-desc::before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    background-color: #3e3838;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle; }
 
 #slider-1 {
   position: relative;
@@ -316,5 +397,97 @@ div.padding50 {
 
 #img-3 {
   background-image: url(https://i2.wp.com/drleskertay.com/wp-content/uploads/2017/08/NH-sunset-cropped-600x400.jpg?ssl=1); }
+
+@media only screen and (max-width: 500px) {
+  #nav-entry {
+    position: static;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    border-bottom: 1px solid #dadada;
+    background-color: #3e3838; }
+    #nav-entry #nav-toggle {
+      position: relative;
+      font-size: 90px;
+      color: #e2e2e2; }
+
+  nav {
+    position: fixed;
+    display: none; }
+
+  main#container {
+    position: absolute;
+    width: 100%; }
+
+  section:first-child {
+    padding-top: 100px; }
+
+  #name {
+    padding-top: 40px;
+    font-size: 40px; }
+
+  #short-skills {
+    display: none; }
+
+  .section-body:first-child {
+    flex-direction: column; }
+
+  .wrap-topic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+
+  #aboutme::after {
+    display: block;
+    content: '';
+    height: 0;
+    width: 100%;
+    border-bottom: 2px solid #3e3838;
+    padding-top: 30px; }
+
+  .about-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px; }
+
+  .title-skill {
+    font-size: 18px;
+    padding-left: 30px; }
+
+  #img-ntpu {
+    height: 125px;
+    width: 270px; }
+
+  .web-edu {
+    display: none; }
+
+  .mobile-edu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 70px;
+    padding-left: 20px;
+    border-left: 3px solid #3e3838; }
+
+  .mobile-edu-desc {
+    font-size: 18px; }
+
+  .description {
+    display: none; }
+
+  .part-desc {
+    display: none; }
+
+  #extra-participation ~ .wrap-topic {
+    align-items: flex-start; } }
 
 /*# sourceMappingURL=style.css.map */

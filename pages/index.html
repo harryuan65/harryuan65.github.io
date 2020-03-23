@@ -33,63 +33,75 @@
   </nav>
   <main id="container" onclick="closeNav()">
     <section id="me">
-      <div id="me-section-body" class="section-body">
+      <div class="section-body">
         <img src="../images/harry_profile.png" id="me" alt="harry_yuan"/>
         <div id="wrap-name-skills">
           <span id="name">Harry Yuan</span>
-          <div id="skills">
+          <div id="short-skills">
             <strong>Ruby on Rails</strong>/<strong>Restful API</strong>/<strong>HTML5</strong> x <strong>CSS</strong> x <strong>ES6/TOEIC<strong>940</strong>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="aboutme" class="info">
+    <section class="info">
       <div class="section-body">
-        <h1 class="info-title">About Me</h1>
-        <ul class="wrap-info-items">
-        <li>
-          <div class="arrow-wrap"><div class="arrow"></div></div>
-          <span class="info-subtitle about" id="education">Education</span>
-          <div class="wrap-about">
-            <p class="about-info"></p>
+        <h1 id="aboutme" class="info-title aboutme">About Me</h1>
+      </div>
+      <div id="aboutme-body">
+        <div class="about-block">
+          <h2 id="education" class="aboutme-title">Education</h2>
+          <div class="wrap-topic">
+            <h3 class='title-skill web-edu'>🎓 Bachelor degree, Computer Science, National Taipei University</h3>
+            <div class="mobile-edu">
+              <h3 class="mobile-edu-desc">Bachelor degree</h3>
+              <h3 class="mobile-edu-desc">Computer Science</h3>
+              <h3 class="mobile-edu-desc">National Taipei University</h3>
+            </div>
+            <img id='img-ntpu' src='../images//ntpu.jpg' alt="ntpu">
           </div>
-        </li>
-        <li>
-          <div class="arrow-wrap"><div class="arrow"></div></div>
-           <span class="info-subtitle about" id="experiences">Experiences</span>
-           <div class="wrap-about">
-             <p class="about-info"></p>
-           </div>
-        </li>
-        <li>
-          <div class="arrow-wrap"><div class="arrow"></div></div>
-           <span class="info-subtitle about" id="skills">Skills</span>
-           <div class="wrap-about">
-             <p class="about-info"></p>
-           </div>
-        </li>
-        <li>
-          <div class="arrow-wrap"><div class="arrow"></div></div>
-           <span class="info-subtitle about" id="extra-participation">Extra-participation</span>
-           <div class="wrap-about">
-             <p class="about-info"></p>
-           </div>
-        </li>
-        </ul>
-      </div>
-      <div id="education">
-        <h2>Education</h2>
-        <h3>National Taipei University</h3>
-      </div>
-      <div id="experiences">
+        </div>
 
-      </div>
-      <div id="skills">
-        <h3>Basic linux skills</h3>
-      </div>
-      <div>
+        <div class="about-block">
+          <h2 id="experiences" class="aboutme-title">Experiences</h2>
+          <div class="wrap-topic">
+            <h3 class="experience"><div class="position"><img class="goodnight" src="../images/goodnight_logo.png" alt="goodnight-logo"> Goodnight App Back End Engineer</div><span>-</span><div class="time">December 2019 ~ Now</div></h3>
+            <h3 class="experience"><div class="position"><img class="goodnight" src="../images/goodnight_logo.png" alt="goodnight-logo"> Goodnight App Back End Intern</div><span>-</span><div class="time">July 2019 ~ December 2019</div></h3>
+          </div>
+        </div>
 
+        <div class="about-block">
+          <h2 id="skills" class="aboutme-title">Skills</h2>
+          <div class="wrap-topic">
+            <h3 class='title-skill'><img class="img-skill" id="ruby" src="../images/ruby.png" alt="linux">Ruby on Rails (Main focus)</h3>
+            <div class="description">MVC | Restful API | Serializer | Sidekiq Worker</div>
+            <h3 class='title-skill'><img class="img-skill" id="html-css-js" src="../images/htmlcssjs.png" alt="linux">HTML/CSS/ES6</h3>
+            <div class="description">This page is made by me</div>
+            <h3 class='title-skill'><img class="img-skill" id="dokku" src="../images/dokku.png" alt="linux">Docker/Dokku</h3>
+            <div class="description">Docker Basic Operations/Image Building/Container</div>
+            <div class="description">Deploy application on AWS using dokku PaaS</div>
+            <h3 class='title-skill'><img class="img-skill" id="postgres" src="../images/postgres.png" alt="linux">SQL w/ PostgresQL</h3>
+            <div class="description">Basic SQL sytax/Backup/Restore</div>
+            <h3 class='title-skill'><img class="img-skill" id="linux" src="../images/linux.png" alt="linux">Basic linux operations</h3>
+            <div class="description">File manipulation/VIM/SSH/SCP/Permissions</div>
+          </div>
+        </div>
+
+        <div class="about-block">
+          <h2 id="extra-participation" class="aboutme-title">Extra Participation</h2>
+          <div class="wrap-topic">
+            <h3 class="participation">ICGA 2018 Staff Member - Responsible for foreign participants</h3>
+            <div class="part-desc">As a window for foreigners</div>
+            <h3 class="participation">Front/Back End Study Group - Back End team</h3>
+            <div class="part-desc">We often discuss and share front/back end knowledge and news with each other</div>
+            <h3 class="participation">NTPU CS Depart. Student Faculty - Vice President.</h3>
+            <div class="part-desc">As a communication window between students and department office</div>
+            <h3 class="participation">NTPU Airsoft Club - Vice Leader</h3>
+            <div class="part-desc">Organize activities and prepare materials for club meetings</div>
+            <h3 class="participation">NTPU CS Camp - Administrative Lead</h3>
+            <div class="part-desc">Responsible for preparing all daily needs including accommodation for participants</div>
+          </div>
+        </div>
       </div>
     </section>
 
