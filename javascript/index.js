@@ -64,6 +64,7 @@ function detectSwitchMeView(){
 
     console.log(containerWidth)
     if(containerWidth < 1200){
+      if(!sectionBodyMe){return}
       sectionBodyMe.style.flexDirection='column';
       sectionBodyMe.style.justifyContent='center';
       sectionBodyMe.style.alignItems='center';

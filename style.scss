@@ -421,111 +421,10 @@ a.info-contact{
     vertical-align: middle;
   }
 }
-//slider
-#slider-1{
-  position: relative;
-  height: 400px;
-  width: 600px;
-  padding-bottom: 50px;
-}
-.wrap-slide-page{
-  margin: 10px 0 0 10px;
-  position: absolute;
-  z-index:1;
-  color: rgba(256,256,256,.8);
-}
-.container-slider-buttons{
-  position: absolute;
-  z-index: 1;
-  height:400px;
-  width: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-.wrap-slider-buttons{
-  display:flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.a-slider{
-  width:20px;
-  height:20px;
-  background-color: rgba(255,255,255,.6);
-  border-radius: 10px;
-  transition: .5s ease-out;
-  &:nth-child(2){
-    margin:0 5px 0 5px;
-  }
-  &:hover{
-    background-color: rgba(255,255,255,.5);
-  }
-  &:active{
-    background-color: rgba(255,255,255,.4);
-  }
-}
-
-.container-img{
-  position: absolute;
-  width: 600px;
-  height: inherit;
-  overflow: hidden; //這個是關鍵用來擋住 1.很長的wrap-img 2. border radius擋住裡面的圖
-  border-radius: 15px;
-}
-#wrap-img{
-  position: absolute;
-  width: 1800px;
-  height: 400px;
-  display: flex;
-  flex-direction: row;
-  transition: .5s ease;
-}
-.mask{
-  border-radius: inherit;
-  background-color: rgba(90,90,90,.3);
-  position: absolute;
-  width: 600px;
-  height: inherit;
-}
-%img{
-  background-size: contain; //是說顯示整個張圖，所以會自動偵測比例
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  display: inline-block;
-}
-.pic{
-  @extend %img;
-}
-#img-1{
-  background-image: url(https://salishmagazine.org/wp-content/uploads/2019/07/1-20170819-5038D800-600-400.jpg);
-}
-#img-2{
-  background-image: url(https://i2.wp.com/hdtanning.com/wp-content/uploads/2016/11/sea-sunny-person-beach-600x400.jpg?fit=600%2C400&ssl=1);
-}
-#img-3{
-  background-image: url(https://i2.wp.com/drleskertay.com/wp-content/uploads/2017/08/NH-sunset-cropped-600x400.jpg?ssl=1);
-}
 
 @media only screen and (max-width:500px){
   #nav-entry{
-    position: static;
-    width: 100%;
-    height: 50%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    left: 0;
-    top: 0;
-    border-bottom: 1px solid $nav-item-default-color;
-    background-color: $font-color;
-    #nav-toggle{
-      position: relative;
-      font-size: 90px;
-      color: $back-color;
-    }
+    display:none;
   }
 
   nav{
@@ -539,10 +438,6 @@ a.info-contact{
   }
 
   // me photo name
-  section:first-child{
-    padding-top: 100px;
-  }
-
   #name{
     padding-top: 40px;
     font-size: 40px;
@@ -560,7 +455,10 @@ a.info-contact{
     justify-content: center;
     align-items: center;
   }
-
+  .section-body .info-title:not(.aboutme)::after{
+    border: none;
+    margin: 0 ;
+  }
   // aboutme
   #aboutme::after{
     display: block;
@@ -585,8 +483,8 @@ a.info-contact{
   }
   // education
   #img-ntpu{
-    height: 125px;
-    width: 270px;
+    height: auto;
+    width: 70%;
   }
   .web-edu{
     display: none;
@@ -597,13 +495,29 @@ a.info-contact{
     justify-content: center;
     align-items: flex-start;
     margin-left: 70px;
-    padding-left: 20px;
-    border-left: 3px solid $font-color;
   }
   .mobile-edu-desc{
     font-size: 18px;
   }
+  //experiences
+  img.goodnight{
+    display: none;
+  }
+  .experience, .experiences{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .time{
+    padding: 0;
+  }
+  .dash{
+    display: none;
+  }
   //skills
+  .wrap-topic.skills{
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
   .description{
     display: none;
   }
