@@ -146,25 +146,12 @@ section{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   min-width: 400px;
-
-  &:first-child{
-    flex-direction: row;
-    align-items: center;
-    padding-right: 0;
-  }
 
   .info-title{
     font-size: 50px;
     font-weight: 900;
-    &:not(.aboutme)::after{
-      content: '';
-      height: 0;
-      width: 0;
-      border-right: 3px solid $font-color;
-      margin: 0 70px 0 70px;
-    }
   }
 
   .wrap-info-items{
@@ -358,6 +345,33 @@ img#linux{
 }
 
 // Portfolios
+a.link-portfolio{
+  color: #1481BA;
+  font-weight: bolder;
+  font-size: 23px;
+  text-decoration: underline;
+  transition: color .3s ease;
+
+  &::before{
+    display: inline-block;
+    content: '';
+    height: 0;
+    width: 0;
+    border-style: solid none solid solid;
+    border-width: 10px 0 10px 15px;
+    border-color: transparent transparent transparent $font-color;
+    padding-right: 30px;
+  }
+  &:hover{
+    color: #0CAADC;
+    transition: color .3s ease;
+  }
+}
+
+.portfolio-title{
+  font-size: 25px;
+}
+
 img#github-logo{
   width: 120px;
   height: 50px;
@@ -445,30 +459,20 @@ a.info-contact{
   #short-skills{
     display: none;
   }
-  .section-body:first-child{
-    flex-direction: column;
-  }
 
   .wrap-topic{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0;
   }
+
   .section-body .info-title:not(.aboutme)::after{
     border: none;
     margin: 0 ;
   }
   // aboutme
-  #aboutme::after{
-    display: block;
-    content: '';
-    height: 0;
-    width: 100%;
-    border-bottom: 2px solid $font-color;
-    padding-top: 30px;
-  }
-
   .about-block{
     width: 100%;
     display: flex;
@@ -480,6 +484,10 @@ a.info-contact{
   .title-skill{
     font-size: 18px;
     padding-left:  30px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
   }
   // education
   #img-ntpu{
@@ -494,10 +502,13 @@ a.info-contact{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin-left: 70px;
   }
   .mobile-edu-desc{
     font-size: 18px;
+    margin: 0;
+    &:first-child{
+      text-decoration: underline;
+    }
   }
   //experiences
   img.goodnight{
@@ -521,6 +532,13 @@ a.info-contact{
   .description{
     display: none;
   }
+  //portfolios
+  .portfolio-block .wrap-topic{
+    align-items: flex-start;
+  }
+  .portfolio-title .info-item .info-text{
+    display: none;
+  }
   //participation
    .part-desc{
      display:none;
@@ -528,4 +546,10 @@ a.info-contact{
    #extra-participation ~ .wrap-topic{
      align-items: flex-start;
    }
+
+   span.info-text{
+    font-size: 15px;
+    font-weight: bold;
+    min-width: 150px;
+  }
 }
