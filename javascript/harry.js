@@ -1,5 +1,5 @@
 window.onload = ()=>{
-  // window.scrollTo({'behavior': 'smooth','top': 0});
+  window.scrollTo({'behavior': 'smooth','top': 0});
 }
 function scrollToAnchor(event){
    var a = event.target;
